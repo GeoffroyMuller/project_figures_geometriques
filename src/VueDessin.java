@@ -1,10 +1,21 @@
 
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.Color;
+import java.util.*;
+
+import javax.swing.*;
+
+
 
 public class VueDessin extends JPanel{
 
 	public VueDessin() {
-		// TODO Auto-generated constructor stub
+		setBackground(Color.white);
+	}
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		
 	}
 
 }

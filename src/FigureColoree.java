@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
-public class FigureColoree {
+public abstract class FigureColoree {
 	
 	public static final int TAILLE_CARRE_SELECTION=4;
 	private boolean selected;
@@ -16,21 +16,15 @@ public class FigureColoree {
 		tab_mem = new ArrayList<Point>();
 	}
 	
-	public int nbPoint(){
-		return 0;
-	}
+	public abstract int nbPoint();
 	
-	public int nbClics(){
-		return 0;
-	}
+	public abstract int nbClics();
 	
-	public boolean estDedans(int a,int b){
-		return false;
-	}
+	public abstract boolean estDedans(int a,int b);
+
 	
-	public void modifierPoints(Point[] tp){
-		
-	}
+	public abstract void modifierPoints(Point[] tp);
+
 	
 	public void affiche(Graphics g){
 		

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public abstract class FigureColoree {
 	
 	public static final int TAILLE_CARRE_SELECTION=4;
+	public static final int PERIPHERIE_CARRE_SELECTION=4;
 	private boolean selected;
 	private Color couleur;
 	private ArrayList<Point> tab_mem;
@@ -27,11 +28,13 @@ public abstract class FigureColoree {
 
 	
 	public void affiche(Graphics g){
-		
+		g.setColor(couleur);
 	}
 	
-	public void translation(int a,int b){
-		
+	public void translation(int tx,int ty){
+		for (int i = 0; i < tab_mem.size(); i++) {
+			tab_mem.get(i).translation(tx, ty);;
+		}
 	}
 	
 	public void transformation(int a,int b,int c){

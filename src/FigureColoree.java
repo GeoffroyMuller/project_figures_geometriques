@@ -5,14 +5,15 @@ import java.util.ArrayList;
 
 public class FigureColoree {
 	
+	public static final int TAILLE_CARRE_SELECTION=4;
 	private boolean selected;
 	private Color couleur;
-	private ArrayList<Point> tabp;
+	private ArrayList<Point> tab_mem;
 	
 	public FigureColoree() {
 		selected = false;
 		couleur = Color.blue;
-		tabp = new ArrayList<Point>();
+		tab_mem = new ArrayList<Point>();
 	}
 	
 	public int nbPoint(){

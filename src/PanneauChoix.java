@@ -12,8 +12,8 @@ public class PanneauChoix extends JPanel{
 	private JRadioButton rbnew = new JRadioButton("Nouvelle figure");
 	private JRadioButton rbmain = new JRadioButton("Tracés à main levée");
 	private JRadioButton rbmanip = new JRadioButton("Manipulations");
-	private JComboBox cbfigue= new JComboBox();
-	private JComboBox cbcolor= new JComboBox();
+	private JComboBox cbfigue= new JComboBox(new String[]{"Rectangle","Triangle"});
+	private JComboBox cbcolor= new JComboBox(new String[]{"Bleu","Rouge","Vert"});
 	
 	public PanneauChoix() {
 		setLayout(new BorderLayout());

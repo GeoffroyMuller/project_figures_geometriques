@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class FigureColoree {
 	
-	private boolean selection;
+	private boolean selected;
 	private Color couleur;
 	private ArrayList<Point> tabp;
 	
 	public FigureColoree() {
-		selection = false;
+		selected = false;
 		couleur = Color.blue;
 		tabp = new ArrayList<Point>();
 	}
@@ -48,11 +48,11 @@ public class FigureColoree {
 	}
 	
 	public void selectionne(){
-		selection = true;
+		selected = true;
 	}
 	
 	public void deSelectionne(){
-		selection = false;
+		selected = false;
 	}
 	
 	public void changeCouleur(Color c){

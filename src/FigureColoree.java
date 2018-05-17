@@ -57,4 +57,12 @@ public abstract class FigureColoree {
 		couleur = c;
 	}
 
+	public void setTab_mem(ArrayList<Point> tab_mem) {
+		this.tab_mem = tab_mem;
+	}
+
+	
+	
+
+	
 }

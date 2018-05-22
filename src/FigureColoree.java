@@ -24,11 +24,21 @@ public abstract class FigureColoree {
 	public abstract boolean estDedans(int a,int b);
 
 	
-	public abstract void modifierPoints(Point[] tp);
+	public void modifierPoints(ArrayList<Point> tab_mem){
+		this.tab_mem = tab_mem;
+	}
 
 	
 	public void affiche(Graphics g){
 		g.setColor(couleur);
+		int[] xPoints = new int[tab_mem.size()];
+		int[] yPoints = new int[tab_mem.size()];
+		for(int i=0;i<tab_mem.size();i++){
+			xPoints[i]=tab_mem.get(i).rendreX();
+			yPoints[i]=tab_mem.get(i).rendreY();
+		}
+		g.drawPolygon(xPoints, yPoints, tab_mem.size());
+		
 	}
 	
 	public void translation(int tx,int ty){
@@ -57,9 +67,6 @@ public abstract class FigureColoree {
 		couleur = c;
 	}
 
-	public void setTab_mem(ArrayList<Point> tab_mem) {
-		this.tab_mem = tab_mem;
-	}
 
 	
 	

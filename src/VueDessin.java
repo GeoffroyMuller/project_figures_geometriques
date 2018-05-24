@@ -13,26 +13,7 @@ public class VueDessin extends JPanel implements Observer{
 		lfi = new ArrayList<FigureColoree>();
 		dm = new DessinModel();
 		setBackground(Color.white);
-		dm.construit(new FigureColoree() {
-
-			@Override
-			public int nbPoint() {
-				// TODO Auto-generated method stub
-				return 5;
-			}
-
-			@Override
-			public int nbClics() {
-				// TODO Auto-generated method stub
-				return 5;
-			}
-
-			@Override
-			public boolean estDedans(int a, int b) {
-				// TODO Auto-generated method stub
-				return false;
-			}
-		});
+		dm.construit(new Quadrilatere());
 		dm.addObserver(this);
 		addMouseListener(dm.ff.getMl());
 	}

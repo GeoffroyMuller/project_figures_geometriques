@@ -13,7 +13,7 @@ public abstract class FigureColoree {
 	
 	public FigureColoree() {
 		selected = false;
-		couleur = Color.blue;
+		couleur = Color.gray;
 		tab_mem = new ArrayList<Point>();
 	}
 	
@@ -28,6 +28,7 @@ public abstract class FigureColoree {
 	
 	public void affiche(Graphics g){
 		g.setColor(couleur);
+		System.out.println("affiche fc");
 		/*g.drawRect(10, 10, 10, 10);
 		int [] xd = {10,20,30};
 		int [] yd = {10,60,30};

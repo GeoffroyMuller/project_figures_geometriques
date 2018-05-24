@@ -30,14 +30,62 @@ public class PanneauChoix extends JPanel{
 		cb.setBackground(new Color(47,66,75));
 		add(rb, BorderLayout.NORTH);
 		add(cb, BorderLayout.CENTER);
-		cbfigue.addActionListener(new ActionListener() {
-			
+		ActionListener acl = new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				if(rbnew.isSelected()){
+					cbfigue.setEnabled(true);
+					cbcolor.setEnabled(true);
+					creeFigure();
+					determineCouleur();
+				}
+				if(rbmain.isSelected()){
+					cbfigue.setEnabled(false);
+					cbcolor.setEnabled(true);
+					determineCouleur();
+				}
+				if(rbmanip.isSelected()){
+					cbfigue.setEnabled(false);
+					cbcolor.setEnabled(false);
+				}
 			}
-		});
-	}                           
+		};
+		rbnew.addActionListener(acl);
+		rbmain.addActionListener(acl);
+		rbmanip.addActionListener(acl);
+		cbcolor.addActionListener(acl);
+		cbfigue.addActionListener(acl);
+	}
+
+	private void creeFigure(){
+		switch(cbfigue.getSelectedIndex()){
+		case 0 :
+			System.out.println("Rectangle");
+			break;
+		case 1 :
+			System.out.println("Triangle");
+			break;
+		default :
+			System.out.println("default");
+		}
+	}
+	
+	private void determineCouleur(){
+		switch(cbcolor.getSelectedIndex()){
+		case 0 :
+			System.out.println("Bleu");
+			break;
+		case 1 :
+			System.out.println("Rouge");
+			break;
+		case 2 :
+			System.out.println("Vert");
+			break;
+		default :
+			System.out.println("default");
+		}
+	}
 
 }

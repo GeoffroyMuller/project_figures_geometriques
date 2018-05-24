@@ -9,7 +9,7 @@ public abstract class Polygone extends FigureColoree{
 
 	public void affiche(Graphics g){
 		super.affiche(g);
-
+		System.out.println("affiche poly");
 		int[] xPoints = new int[tab_mem.size()];
 		int[] yPoints = new int[tab_mem.size()];
 		for(int i=0;i<tab_mem.size();i++){
@@ -17,19 +17,16 @@ public abstract class Polygone extends FigureColoree{
 			yPoints[i]=tab_mem.get(i).rendreY();
 		}
 		System.out.println(tab_mem);
-		g.drawPolygon(xPoints, yPoints, tab_mem.size());
+		g.fillPolygon(xPoints, yPoints, tab_mem.size());
 	}
 
 	public int nbClics(){
-<<<<<<< HEAD
 		if(this instanceof Quadrilatere){
 			return 4;
 		}
 
 		return 5;
-=======
-		return this.nbPoint();
->>>>>>> f7b1e4ddae9d9aea5e403b1cfe8ef2ce017e771a
+
 	}
 
 	public void modifierPoints(java.util.ArrayList<Point> tab_mem) {

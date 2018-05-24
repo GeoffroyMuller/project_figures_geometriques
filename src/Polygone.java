@@ -21,11 +21,7 @@ public abstract class Polygone extends FigureColoree{
 	}
 	
 	public int nbClics(){
-		if(this instanceof Quadrilatere){
-			return 4;
-		}
-		
-		return 5;
+		return this.nbPoint();
 	}
 	
 	public void modifierPoints(java.util.ArrayList<Point> tab_mem) {

@@ -10,6 +10,7 @@ public class VueDessin extends JPanel implements Observer{
 	private ArrayList<FigureColoree> lfi;
 	private DessinModel dm;
 	public VueDessin() {
+		lfi = new ArrayList<FigureColoree>();
 		dm = new DessinModel();
 		setBackground(Color.white);
 		dm.construit(new FigureColoree() {
@@ -43,7 +44,11 @@ public class VueDessin extends JPanel implements Observer{
 		int [] xd = {10,20,30};
 		int [] yd = {10,60,30};
 		g.drawPolygon(xd, yd, 3);*/
-		lfi.get(0).affiche(g);
+		for (int i = 0; i < lfi.size(); i++) {
+			lfi.get(i).affiche(g);
+			System.out.println("afficher figure num :"+i);
+		}
+
 	}
 
 	@Override

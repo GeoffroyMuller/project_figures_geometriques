@@ -37,8 +37,12 @@ public abstract class FigureColoree {
 			xPoints[i]=tab_mem.get(i).rendreX();
 			yPoints[i]=tab_mem.get(i).rendreY();
 		}
+		System.out.println(tab_mem);
 		g.drawPolygon(xPoints, yPoints, tab_mem.size());
-		
+		/*g.drawRect(10, 10, 10, 10);
+		int [] xd = {10,20,30};
+		int [] yd = {10,60,30};
+		g.drawPolygon(xd, yd, 3);*/
 	}
 	
 	public void translation(int tx,int ty){

@@ -10,7 +10,7 @@ public class FabricantFigures {
 	private Point point;
 	MouseListener ml;
 
-	private ArrayList<Point> lp;
+	private ArrayList<Point> lp= new ArrayList<Point>();
 	public FabricantFigures(FigureColoree fc,DessinModel dm) {
 		ml = new MouseListener() {
 
@@ -42,9 +42,8 @@ public class FabricantFigures {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				nbClics++;
-				
+				System.out.println("clicked");
 				point = new Point(e.getX(),e.getY());
-				lp = new ArrayList<Point>();
 
 				if(nbClics < fc.nbClics()){
 					lp.add(point);
@@ -53,12 +52,13 @@ public class FabricantFigures {
 					if(nbClics == fc.nbClics()){
 						lp.add(point);
 						fc.modifierPoints(lp);//a changer
-						dm.ajoute(fc);
-						System.out.println("addp"+nbClics);
+						System.out.println("addpFinal"+nbClics);
 						System.out.println("insertion dans fc");
+						dm.ajoute(fc);
+
 					}
 				}
-				System.out.println("clicked");
+				
 			}
 		};
 	}

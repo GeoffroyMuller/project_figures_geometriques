@@ -10,7 +10,8 @@ public class DessinModel extends Observable{
 
 	public void ajoute(FigureColoree fc){
 		lfi.add(fc);
-		setChanged();
+		System.out.println("dessin modele updater");
+		setChanged();	
 		notifyObservers();
 	}
 

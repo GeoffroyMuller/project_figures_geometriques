@@ -13,7 +13,7 @@ public class VueDessin extends JPanel implements Observer{
 		lfi = new ArrayList<FigureColoree>();
 		dm = new DessinModel();
 		setBackground(Color.white);
-		dm.construit(new Quadrilatere());
+		dm.construit(new Quadrilatere());//a mettre dans panneau choix
 		dm.addObserver(this);
 		addMouseListener(dm.ff.getMl());
 	}
@@ -45,6 +45,6 @@ public class VueDessin extends JPanel implements Observer{
 	public DessinModel getDm() {
 		return dm;
 	}
-	
+
 
 }

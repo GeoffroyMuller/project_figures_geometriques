@@ -6,10 +6,10 @@ public abstract class Polygone extends FigureColoree{
 	public Polygone() {
 		super();
 	}
-	
+
 	public void affiche(Graphics g){
 		super.affiche(g);
-		
+
 		int[] xPoints = new int[tab_mem.size()];
 		int[] yPoints = new int[tab_mem.size()];
 		for(int i=0;i<tab_mem.size();i++){
@@ -19,15 +19,15 @@ public abstract class Polygone extends FigureColoree{
 		System.out.println(tab_mem);
 		g.drawPolygon(xPoints, yPoints, tab_mem.size());
 	}
-	
+
 	public int nbClics(){
 		if(this instanceof Quadrilatere){
 			return 4;
 		}
-		
+
 		return 5;
 	}
-	
+
 	public void modifierPoints(java.util.ArrayList<Point> tab_mem) {
 		this.tab_mem= tab_mem;
 	};

@@ -10,11 +10,12 @@ public class PanneauChoix extends JPanel{
 	private JRadioButton rbmanip = new JRadioButton("Manipulations");
 	private JComboBox cbfigue= new JComboBox(new String[]{"Rectangle","Triangle"});
 	private JComboBox cbcolor= new JComboBox(new String[]{"Bleu","Rouge","Vert"});
-	private DessinModel dm = new DessinModel();
+	private DessinModel dm;
 
 	private ButtonGroup bg = new ButtonGroup();
 
-	public PanneauChoix() {
+	public PanneauChoix(DessinModel dme) {
+		dm = dme;
 		setLayout(new BorderLayout());
 		JPanel rb = new JPanel();
 		JPanel cb = new JPanel();
@@ -63,6 +64,8 @@ public class PanneauChoix extends JPanel{
 		switch(cbfigue.getSelectedIndex()){
 		case 0 :
 			System.out.println("Rectangle");
+			dm.construit(new Quadrilatere());
+			
 			break;
 		case 1 :
 			System.out.println("Triangle");
@@ -87,5 +90,11 @@ public class PanneauChoix extends JPanel{
 			System.out.println("default");
 		}
 	}
+
+	public DessinModel getDm() {
+		return dm;
+	}
+	
+	
 
 }

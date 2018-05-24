@@ -15,8 +15,9 @@ public class Principaletest {
 		// TODO Auto-generated method stub
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		PanneauChoix pc = new PanneauChoix();
-		VueDessin vd = new VueDessin();
+		DessinModel dm = new DessinModel();
+		PanneauChoix pc = new PanneauChoix(dm);
+		VueDessin vd = new VueDessin(dm);
 
 		f.getContentPane().setLayout(new BorderLayout());
 		f.getContentPane().add(pc, BorderLayout.NORTH);

@@ -9,11 +9,11 @@ import javax.swing.*;
 public class VueDessin extends JPanel implements Observer{
 	private ArrayList<FigureColoree> lfi;
 	private DessinModel dm;
-	public VueDessin() {
+	public VueDessin(DessinModel dme) {
 		lfi = new ArrayList<FigureColoree>();
-		dm = new DessinModel();
+		dm = dme;
 		setBackground(Color.white);
-		dm.construit(new Quadrilatere());//a mettre dans panneau choix
+		dm.construit(new Quadrilatere());
 		dm.addObserver(this);
 		addMouseListener(dm.ff.getMl());
 	}
@@ -41,10 +41,5 @@ public class VueDessin extends JPanel implements Observer{
 		System.out.println("remove listener");
 		repaint();
 	}
-
-	public DessinModel getDm() {
-		return dm;
-	}
-
 
 }

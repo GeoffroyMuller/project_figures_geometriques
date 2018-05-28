@@ -8,7 +8,7 @@ public class PanneauChoix extends JPanel{
 	private JRadioButton rbnew = new JRadioButton("Nouvelle figure");
 	private JRadioButton rbmain = new JRadioButton("Tracés à main levée");
 	private JRadioButton rbmanip = new JRadioButton("Manipulations");
-	private JComboBox cbfigue= new JComboBox(new String[]{"Quadrilatere","Triangle"});
+	private JComboBox cbfigue= new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle"});
 	private JComboBox cbcolor= new JComboBox(new String[]{"Bleu","Rouge","Vert"});
 	private DessinModel dm;
 
@@ -69,6 +69,11 @@ public class PanneauChoix extends JPanel{
 		case 1 :
 			System.out.println("Triangle");
 			dm.construit(new Triangle());
+			break;
+			
+		case 2 :
+			System.out.println("Rectangle");
+			dm.construit(new Rectangle());
 			break;
 		default :
 			System.out.println("default");

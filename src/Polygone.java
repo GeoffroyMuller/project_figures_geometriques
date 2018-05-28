@@ -25,8 +25,8 @@ public abstract class Polygone extends FigureColoree{
 
 	}
 
-	public void modifierPoints(java.util.ArrayList<Point> tab_mem) {
-		this.tab_mem= tab_mem;
+	public void modifierPoints(java.util.ArrayList<Point> ptab_mem) {
+		this.tab_mem= ptab_mem;
 	};
 	@Override
 	public abstract int nbPoint();

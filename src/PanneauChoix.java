@@ -65,10 +65,10 @@ public class PanneauChoix extends JPanel{
 		case 0 :
 			System.out.println("Quadrilatere");
 			dm.construit(new Quadrilatere());
-			
 			break;
 		case 1 :
 			System.out.println("Triangle");
+			dm.construit(new Triangle());
 			break;
 		default :
 			System.out.println("default");

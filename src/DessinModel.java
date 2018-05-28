@@ -12,13 +12,18 @@ public class DessinModel extends Observable{
 		lfi.add(fc);
 		System.out.println("dessin modele updater");
 		setChanged();	
-		notifyObservers(true);
+		notifyObservers(true);//remove
 	}
 
 	public void construit(FigureColoree fc){
+		if(ff!=null){
+			System.out.println("-remove deb construit");
+			setChanged();	
+			notifyObservers(true);//remove
+		}
 		ff = new FabricantFigures(fc, this);
 		setChanged();	
-		notifyObservers(false);
+		notifyObservers(false);//add
 	}
 
 	public ArrayList<FigureColoree> getlfi(){

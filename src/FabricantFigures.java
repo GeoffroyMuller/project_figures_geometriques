@@ -41,6 +41,7 @@ public class FabricantFigures {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
+				System.out.println("fc.nbClics():"+fc.nbClics());
 				nbClics++;
 				System.out.println("clicked");
 				point = new Point(e.getX(),e.getY());

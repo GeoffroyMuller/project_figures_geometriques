@@ -11,6 +11,7 @@ public class PanneauChoix extends JPanel{
 	private JComboBox cbfigue= new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle"});
 	private JComboBox cbcolor= new JComboBox(new String[]{"Bleu","Rouge","Vert"});
 	private DessinModel dm;
+	private Color c;
 
 	private ButtonGroup bg = new ButtonGroup();
 
@@ -61,20 +62,27 @@ public class PanneauChoix extends JPanel{
 	}
 
 	private void creeFigure(){
+		this.determineCouleur();
 		switch(cbfigue.getSelectedIndex()){
 		case 0 :
 			System.out.println("Quadrilatere");
-			dm.construit(new Quadrilatere());
+			Quadrilatere q =new Quadrilatere();
+			q.changeCouleur(c);
+			dm.construit(q);
 			//rbnew.doClick();
 			break;
 		case 1 :
 			System.out.println("Triangle");
-			dm.construit(new Triangle());
+			Triangle t =new Triangle();
+			t.changeCouleur(c);
+			dm.construit(t);
 			break;
 
 		case 2 :
 			System.out.println("Rectangle");
-			dm.construit(new Rectangle());
+			Rectangle r = new Rectangle();
+			r.changeCouleur(c);
+			dm.construit(r);
 			break;
 		default :
 			System.out.println("default");
@@ -85,12 +93,16 @@ public class PanneauChoix extends JPanel{
 		switch(cbcolor.getSelectedIndex()){
 		case 0 :
 			System.out.println("Bleu");
+			c=Color.blue;
+			
 			break;
 		case 1 :
 			System.out.println("Rouge");
+			c=Color.red;
 			break;
 		case 2 :
 			System.out.println("Vert");
+			c=Color.green;
 			break;
 		default :
 			System.out.println("default");

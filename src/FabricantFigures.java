@@ -59,7 +59,7 @@ public class FabricantFigures {
 
 					}
 				}
-				
+
 			}
 		};
 	}
@@ -72,8 +72,8 @@ public class FabricantFigures {
 		return lp;
 	}
 
-	
-	
+
+
 
 
 

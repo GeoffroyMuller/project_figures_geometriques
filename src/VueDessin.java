@@ -13,9 +13,9 @@ public class VueDessin extends JPanel implements Observer{
 		lfi = new ArrayList<FigureColoree>();
 		dm = dme;
 		setBackground(Color.white);
-		dm.construit(new Quadrilatere());
+		//dm.construit(new Quadrilatere());
 		dm.addObserver(this);
-		addMouseListener(dm.ff.getMl());
+		//addMouseListener(dm.ff.getMl());
 	}
 
 	public void paintComponent(Graphics g){
@@ -37,9 +37,15 @@ public class VueDessin extends JPanel implements Observer{
 		// TODO Auto-generated method stub
 		DessinModel dm = (DessinModel)o;
 		lfi = dm.getlfi();
-		removeMouseListener(dm.ff.getMl());
-		System.out.println("remove listener");
-		repaint();
+		if((boolean)arg){
+			removeMouseListener(dm.ff.getMl());
+			System.out.println("remove listener");
+			repaint();
+		}
+		else{
+			addMouseListener(dm.ff.getMl());
+			System.out.println("ajout listener");
+		}
 	}
 
 }

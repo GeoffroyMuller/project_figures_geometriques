@@ -12,14 +12,17 @@ public class DessinModel extends Observable{
 		lfi.add(fc);
 		System.out.println("dessin modele updater");
 		setChanged();	
-		notifyObservers();
+		notifyObservers(true);
 	}
 
 	public void construit(FigureColoree fc){
 		ff = new FabricantFigures(fc, this);
+		setChanged();	
+		notifyObservers(false);
 	}
 
 	public ArrayList<FigureColoree> getlfi(){
 		return lfi;
 	}
+	
 }

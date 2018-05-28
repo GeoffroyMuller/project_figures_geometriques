@@ -65,12 +65,13 @@ public class PanneauChoix extends JPanel{
 		case 0 :
 			System.out.println("Quadrilatere");
 			dm.construit(new Quadrilatere());
+			//rbnew.doClick();
 			break;
 		case 1 :
 			System.out.println("Triangle");
 			dm.construit(new Triangle());
 			break;
-			
+
 		case 2 :
 			System.out.println("Rectangle");
 			dm.construit(new Rectangle());
@@ -79,7 +80,7 @@ public class PanneauChoix extends JPanel{
 			System.out.println("default");
 		}
 	}
-	
+
 	private void determineCouleur(){
 		switch(cbcolor.getSelectedIndex()){
 		case 0 :
@@ -99,7 +100,7 @@ public class PanneauChoix extends JPanel{
 	public DessinModel getDm() {
 		return dm;
 	}
-	
-	
+
+
 
 }

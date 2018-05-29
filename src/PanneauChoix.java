@@ -88,6 +88,11 @@ public class PanneauChoix extends JPanel{
 			System.out.println("default");
 		}
 	}
+	
+	public void modifierFigure(){
+		this.determineCouleur();
+		
+	}
 
 	private void determineCouleur(){
 		switch(cbcolor.getSelectedIndex()){

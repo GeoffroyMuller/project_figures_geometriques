@@ -35,7 +35,7 @@ public abstract class Polygone extends FigureColoree{
 
 	@Override
 	public boolean estDedans(int a, int b) {
-		return false;
+		return this.p.contains(a,b);
 	}
 
 	public Polygon getP() {

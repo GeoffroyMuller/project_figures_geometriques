@@ -51,6 +51,7 @@ public class PanneauChoix extends JPanel{
 				if(rbmanip.isSelected()){
 					cbfigue.setEnabled(false);
 					cbcolor.setEnabled(false);
+					modifierFigure();
 				}
 			}
 		};
@@ -91,7 +92,7 @@ public class PanneauChoix extends JPanel{
 	
 	public void modifierFigure(){
 		this.determineCouleur();
-		
+		ManipulateurFormes mpf = new ManipulateurFormes(this.dm);
 	}
 
 	private void determineCouleur(){

@@ -1,8 +1,9 @@
 import java.awt.Graphics;
+import java.awt.Polygon;
 import java.util.*;
 
 public abstract class Polygone extends FigureColoree{
-	private Polygone p;
+	private Polygon p;
 	public Polygone() {
 		super();
 	}
@@ -16,6 +17,7 @@ public abstract class Polygone extends FigureColoree{
 			xPoints[i]=tab_mem.get(i).rendreX();
 			yPoints[i]=tab_mem.get(i).rendreY();
 		}
+		p = new Polygon(xPoints, yPoints, tab_mem.size());
 		System.out.println(tab_mem);
 		g.fillPolygon(xPoints, yPoints, tab_mem.size());
 	}
@@ -35,5 +37,11 @@ public abstract class Polygone extends FigureColoree{
 	public boolean estDedans(int a, int b) {
 		return false;
 	}
+
+	public Polygon getP() {
+		return p;
+	}
+	
+	
 
 }

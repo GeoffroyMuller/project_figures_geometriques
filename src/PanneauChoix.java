@@ -89,7 +89,7 @@ public class PanneauChoix extends JPanel{
 			System.out.println("default");
 		}
 	}
-	
+
 	public void modifierFigure(){
 		this.determineCouleur();
 		ManipulateurFormes mpf = new ManipulateurFormes(this.dm);
@@ -101,7 +101,7 @@ public class PanneauChoix extends JPanel{
 		case 0 :
 			System.out.println("Bleu");
 			c=Color.blue;
-			
+
 			break;
 		case 1 :
 			System.out.println("Rouge");

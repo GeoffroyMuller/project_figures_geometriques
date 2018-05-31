@@ -32,30 +32,40 @@ public class DessinModel extends Observable{
 		lfi.add(fc);
 		System.out.println("dessin modele updater");
 		setChanged();	
-		notifyObservers(100);//remove Fabricant
+		notifyObservers(VueDessin.SUP_FF);//remove Fabricant
 	}
 
 	public void construit(FigureColoree fc){
 		if(ff!=null){
 			System.out.println("-remove deb construit");
 			setChanged();	
-			notifyObservers(100);//remove Fabricant
+			notifyObservers(VueDessin.SUP_FF);//remove Fabricant
 		}
 		ff = new FabricantFigures(fc, this);
 		setChanged();	
-		notifyObservers(101);//add fabricant
+		notifyObservers(VueDessin.ADD_FF);//add fabricant
 	}
 	
 	public void manipuler(){
 			if(mf==null){
 				mf = new ManipulateurFormes(this);
 				setChanged();	
-				notifyObservers(201);//add Manipulateur
+				notifyObservers(VueDessin.ADD_MF);//add Manipulateur
 			}
 			
 			setChanged();	
-			notifyObservers(0);//pas de changement
+			notifyObservers(VueDessin.NO_CHANGE);//pas de changement
 		
+	}
+	
+	public void finManipulation(){
+		setChanged();
+		notifyObservers(VueDessin.SUP_MF);
+	}
+	
+	public void finCreatiion(){
+		setChanged();
+		notifyObservers(VueDessin.SUP_FF);
 	}
 
 	public ArrayList<FigureColoree> getlfi(){

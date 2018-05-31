@@ -68,6 +68,9 @@ public class ManipulateurFormes {
 			
 			@Override
 			public void mouseDragged(MouseEvent e) {
+				Point p = new Point(e.getX(),e.getY());
+				System.out.println("draggg");
+				
 				// TODO Auto-generated method stub
 				
 			}

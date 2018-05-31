@@ -6,9 +6,12 @@ import javax.swing.*;
 
 
 
+
+
 public class VueDessin extends JPanel implements Observer{
 	private ArrayList<FigureColoree> lfi;
 	private DessinModel dm;
+	private FigureColoree figureEnCours;
 	public VueDessin(DessinModel dme) {
 		lfi = new ArrayList<FigureColoree>();
 		dm = dme;
@@ -37,15 +40,38 @@ public class VueDessin extends JPanel implements Observer{
 		// TODO Auto-generated method stub
 		DessinModel dm = (DessinModel)o;
 		lfi = dm.getlfi();
-		if((boolean)arg){
+		int cas =(int)arg;
+
+		switch(cas){
+		case 0 :
+			break;
+
+		case 100 :
 			removeMouseListener(dm.ff.getMl());
 			System.out.println("remove listener");
 			repaint();
-		}
-		else{
+			break;
+
+		case 101:
 			addMouseListener(dm.ff.getMl());
 			System.out.println("ajout listener");
+			break;
+
+		case 201:
+			addMouseListener(dm.mf.getMlmf());
+			addMouseMotionListener(dm.mf.getMml());
+			System.out.println("ajout des listenner de manipulation");
+			break;
+			
+		case 200:
+			removeMouseListener(dm.mf.getMlmf());
+			removeMouseMotionListener(dm.mf.getMml());
+			break;
+
+		default:
+			break;
 		}
+
 	}
 
 }

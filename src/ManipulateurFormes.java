@@ -23,8 +23,22 @@ public class ManipulateurFormes {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				boolean res = dm.getlfi().get(0).estDedans(e.getX(), e.getY());
-				System.out.println("selection:"+res);
+				boolean res =false;//dm.getlfi().get(0).estDedans(e.getX(), e.getY());;
+				int i=0;
+				while(res==false && i < dm.getlfi().size()){
+				res = dm.getlfi().get(i).estDedans(e.getX(), e.getY());
+				if(!res){
+					i++;
+				}
+				}
+				
+				if(res){
+					System.out.println("selection:"+dm.getlfi().get(i));
+				}
+				else{
+					System.out.println("pas de selection");
+				}
+				
 			}
 			
 			@Override

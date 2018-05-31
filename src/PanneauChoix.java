@@ -93,7 +93,7 @@ public class PanneauChoix extends JPanel{
 	public void modifierFigure(){
 		this.determineCouleur();
 		ManipulateurFormes mpf = new ManipulateurFormes(this.dm);
-		
+		dm.manipuler();
 	}
 
 	private void determineCouleur(){

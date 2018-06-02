@@ -5,25 +5,7 @@ public class DessinModel extends Observable{
 	private ArrayList<FigureColoree> lfi;
 	FabricantFigures ff;
 	ManipulateurFormes mf;
-	//private int type;
 	
-	
-	
-	/*
-	 * mettre des concstante avec des nom
-	 * 0 pas de changement
-	 *
-	 *
-	 *
-	 * liste des param de update 
-	 * 100 :  remove FrabricantFigure
-	 * 101 : add ManipulateurForme 
-	 * 
-	 * 200 : add FrabricantFigure
-	 * 201 : remove ManipulateurForme
-	 * 
-	 * 
-	 */
 	public DessinModel() {
 		lfi = new ArrayList<FigureColoree>();
 	}
@@ -63,7 +45,7 @@ public class DessinModel extends Observable{
 		notifyObservers(VueDessin.SUP_MF);
 	}
 	
-	public void finCreatiion(){
+	public void finCreation(){
 		setChanged();
 		notifyObservers(VueDessin.SUP_FF);
 	}

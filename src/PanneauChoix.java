@@ -42,16 +42,20 @@ public class PanneauChoix extends JPanel{
 					cbcolor.setEnabled(true);
 					creeFigure();
 					determineCouleur();
+					dm.finManipulation();
 				}
 				if(rbmain.isSelected()){
 					cbfigue.setEnabled(false);
 					cbcolor.setEnabled(true);
 					determineCouleur();
+					dm.finManipulation();
+					dm.finCreation();
 				}
 				if(rbmanip.isSelected()){
 					cbfigue.setEnabled(false);
 					cbcolor.setEnabled(false);
 					modifierFigure();
+					dm.finCreation();
 				}
 			}
 		};

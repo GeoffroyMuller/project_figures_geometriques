@@ -9,6 +9,29 @@ import javax.swing.*;
 
 
 public class VueDessin extends JPanel implements Observer{
+	
+	/*
+	 * mettre des concstante avec des nom
+	 * 0 pas de changement
+	 *
+	 *
+	 *
+	 * liste des param de update 
+	 * 100 :  remove FrabricantFigure
+	 * 101 : add ManipulateurForme 
+	 * 
+	 * 200 : add FrabricantFigure
+	 * 201 : remove ManipulateurForme
+	 * 
+	 * 
+	 */
+	public static final int SUP_FF = 100;
+	public static final int ADD_FF = 101;
+	public static final int NO_CHANGE = 0;
+	public static final int SUP_MF = 200;
+	public static final int ADD_MF = 201;
+	
+	
 	private ArrayList<FigureColoree> lfi;
 	private DessinModel dm;
 	private FigureColoree figureEnCours;
@@ -43,27 +66,27 @@ public class VueDessin extends JPanel implements Observer{
 		int cas =(int)arg;
 
 		switch(cas){
-		case 0 :
+		case NO_CHANGE :
 			break;
 
-		case 100 :
+		case SUP_FF :
 			removeMouseListener(dm.ff.getMl());
 			System.out.println("remove listener");
 			repaint();
 			break;
 
-		case 101:
+		case ADD_FF:
 			addMouseListener(dm.ff.getMl());
 			System.out.println("ajout listener");
 			break;
 
-		case 201:
+		case ADD_MF:
 			addMouseListener(dm.mf.getMlmf());
 			addMouseMotionListener(dm.mf.getMml());
 			System.out.println("ajout des listenner de manipulation");
 			break;
 
-		case 200:
+		case SUP_MF:
 			removeMouseListener(dm.mf.getMlmf());
 			removeMouseMotionListener(dm.mf.getMml());
 			break;

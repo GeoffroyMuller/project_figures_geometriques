@@ -98,7 +98,7 @@ public class VueDessin extends JPanel implements Observer{
 			removeMouseListener(dm.mf.getMlmf());
 			removeMouseMotionListener(dm.mf.getMml());
 			System.out.println("remove des listenner de manipulation");
-			
+
 			break;
 
 		default:

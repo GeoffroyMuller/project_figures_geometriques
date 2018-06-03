@@ -99,7 +99,7 @@ public class DessinModel extends Observable{
 
 			}
 		}
-		
+
 		else {
 			System.out.println("dragg mais pas de selection");
 		}

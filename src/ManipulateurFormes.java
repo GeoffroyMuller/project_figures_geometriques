@@ -18,7 +18,7 @@ public class ManipulateurFormes {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
+				tabP = new ArrayList<Point>();
 
 			}
 

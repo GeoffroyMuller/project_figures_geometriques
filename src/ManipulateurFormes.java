@@ -56,22 +56,11 @@ public class ManipulateurFormes {
 			@Override
 			public void mouseDragged(MouseEvent e) {
 				Point p = new Point(e.getX(),e.getY());
-				tabP.add(p);
-				System.out.println("draggg");
 				if(figureselec!=null) {
-					System.out.println(figureselec);
-					if(tabP.size()>2) {
-						int tx,ty;
-						System.out.println("translation");
-						tx=tabP.get(tabP.size()-2).rendreX()-tabP.get(tabP.size()-1).rendreX();
-						ty=tabP.get(tabP.size()-2).rendreY()-tabP.get(tabP.size()-1).rendreY();
-						figureselec.translation(tx, ty);
-
-					}
+					tabP.add(p);
 				}
-				else {
-					System.out.println("dragg mais pas de selection");
-				}
+				System.out.println("draggg");
+				dm.translater(tabP, figureselec);
 
 				// TODO Auto-generated method stub
 

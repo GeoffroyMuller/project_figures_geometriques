@@ -29,12 +29,22 @@ public class DessinModel extends Observable{
 	}
 
 	public void manipuler(){
-		if(mf.getMlmf()==null && mf.getMml()==null) {
-			mf = new ManipulateurFormes(this);
-			setChanged();	
-			notifyObservers(VueDessin.ADD_MF);//add Manipulateur
+		/*if(mf!=null) {
 		}
+
+		mf = new ManipulateurFormes(this);
+		setChanged();	
+		notifyObservers(VueDessin.ADD_MF);//add Manipulateur*/
+		if(mf!=null){
+			System.out.println("-remove deb modification");
+			setChanged();	
+			notifyObservers(VueDessin.SUP_MF);//remove Fabricant
+		}
+		mf = new ManipulateurFormes(this);
+		setChanged();	
+		notifyObservers(VueDessin.ADD_MF);//add fabricant
 	}
+
 
 	public void finManipulation(){
 		setChanged();

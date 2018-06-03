@@ -29,10 +29,6 @@ public abstract class FigureColoree {
 	public void affiche(Graphics g){
 		g.setColor(couleur);
 		System.out.println("affiche fc");
-		if(selected) {
-			g.drawRect(10, 10, 10, 10);
-			g.drawString("selection:"+this, 25, 20);
-		}
 		/*g.drawRect(10, 10, 10, 10);
 		int [] xd = {10,20,30};
 		int [] yd = {10,60,30};
@@ -67,7 +63,11 @@ public abstract class FigureColoree {
 		couleur = c;
 	}
 
+	public boolean isSelected() {
+		return selected;
+	}
 
+	
 	
 	
 

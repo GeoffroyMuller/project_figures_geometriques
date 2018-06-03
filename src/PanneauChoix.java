@@ -41,6 +41,7 @@ public class PanneauChoix extends JPanel{
 				// TODO Auto-generated method stub
 				if(rbnew.isSelected()){
 					System.out.println("=====new figure=====");
+					dm.deSelectionnerTout();
 					cbfigue.setEnabled(true);
 					cbcolor.setEnabled(true);
 					creeFigure();
@@ -49,9 +50,11 @@ public class PanneauChoix extends JPanel{
 					if(rbmanipact) {
 						dm.finManipulation();
 					}
+					//rbnew.doClick();
 				}
 				if(rbmain.isSelected()){
 					System.out.println("=====trait main=====");
+					dm.deSelectionnerTout();
 					cbfigue.setEnabled(false);
 					cbcolor.setEnabled(true);
 					determineCouleur();

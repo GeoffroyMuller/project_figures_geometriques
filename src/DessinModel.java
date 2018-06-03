@@ -82,14 +82,18 @@ public class DessinModel extends Observable{
 		}
 		else{
 			System.out.println("pas de selection");
-			for(int j=0;j<lfi.size();j++) {
-				lfi.get(j).deSelectionne();
-				setChanged();
-				notifyObservers(VueDessin.NO_CHANGE);
-			}
+			deSelectionnerTout();
 			return null;
 		}
 
+	}
+	
+	public void deSelectionnerTout() {
+		for(int j=0;j<lfi.size();j++) {
+			lfi.get(j).deSelectionne();
+			setChanged();
+			notifyObservers(VueDessin.NO_CHANGE);
+		}
 	}
 
 	public void translater(ArrayList<Point> lp, FigureColoree fc) {

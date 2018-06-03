@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public abstract class FigureColoree {
 	
-	public static final int TAILLE_CARRE_SELECTION=4;
-	public static final int PERIPHERIE_CARRE_SELECTION=4;
+	public static final int TAILLE_CARRE_SELECTION=20;
+	public static final int PERIPHERIE_CARRE_SELECTION=20;
 	private boolean selected;
 	private Color couleur;
 	ArrayList<Point> tab_mem;
@@ -29,6 +29,13 @@ public abstract class FigureColoree {
 	public void affiche(Graphics g){
 		g.setColor(couleur);
 		System.out.println("affiche fc");
+		if(selected) {
+			g.setColor(Color.black);
+			for(int i=0; i<tab_mem.size();i++) {
+				g.fillRect(tab_mem.get(i).rendreX(), tab_mem.get(i).rendreY(), TAILLE_CARRE_SELECTION, TAILLE_CARRE_SELECTION);
+			}
+			g.setColor(couleur);
+		}
 		/*g.drawRect(10, 10, 10, 10);
 		int [] xd = {10,20,30};
 		int [] yd = {10,60,30};

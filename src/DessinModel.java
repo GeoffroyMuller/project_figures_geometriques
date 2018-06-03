@@ -62,16 +62,18 @@ public class DessinModel extends Observable{
 
 	public FigureColoree selectionner(int x, int y) {
 		boolean res =false;//dm.getlfi().get(0).estDedans(e.getX(), e.getY());;
-		int i=0;
-		while(res==false && i < getlfi().size()){
+		int i=getlfi().size()-1;
+		while(res==false && i >=0 ){
 			res = getlfi().get(i).estDedans(x,y);
 			if(!res){
-				i++;
+				i--;
 			}
 		}
 
 		if(res){
-
+			for(int j=0;j<lfi.size();j++) {
+				lfi.get(j).deSelectionne();
+			}
 			System.out.println("selection:"+lfi.get(i));
 			lfi.get(i).selectionne();
 			setChanged();
@@ -80,6 +82,11 @@ public class DessinModel extends Observable{
 		}
 		else{
 			System.out.println("pas de selection");
+			for(int j=0;j<lfi.size();j++) {
+				lfi.get(j).deSelectionne();
+				setChanged();
+				notifyObservers(VueDessin.NO_CHANGE);
+			}
 			return null;
 		}
 

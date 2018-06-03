@@ -56,7 +56,6 @@ public class VueDessin extends JPanel implements Observer{
 		for (int i = 0; i < lfi.size(); i++) {
 			lfi.get(i).affiche(g);
 			if(lfi.get(i).isSelected()) {
-
 				g.drawRect(xcar, ycar, 10, 10);
 				g.drawString("selection:"+lfi.get(i),20 , xcar+20);
 				xcar += 15;

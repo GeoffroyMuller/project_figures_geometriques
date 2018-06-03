@@ -8,7 +8,7 @@ public class PanneauChoix extends JPanel{
 	private JRadioButton rbnew = new JRadioButton("Nouvelle figure");
 	private JRadioButton rbmain = new JRadioButton("Tracés à main levée");
 	private JRadioButton rbmanip = new JRadioButton("Manipulations");
-	private JComboBox cbfigue= new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle"});
+	private JComboBox cbfigue= new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle","Carre","Losange"});
 	private JComboBox cbcolor= new JComboBox(new String[]{"Bleu","Rouge","Vert"});
 	private DessinModel dm;
 	private Color c;
@@ -99,6 +99,13 @@ public class PanneauChoix extends JPanel{
 			Rectangle r = new Rectangle();
 			r.changeCouleur(c);
 			dm.construit(r);
+			break;
+			
+		case 3 :
+			System.out.println("Carre");
+			Carre car = new Carre();
+			car.changeCouleur(c);
+			dm.construit(car);
 			break;
 		default :
 			System.out.println("default");

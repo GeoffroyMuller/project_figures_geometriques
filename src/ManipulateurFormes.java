@@ -8,72 +8,73 @@ import java.awt.event.MouseMotionListener;
 public class ManipulateurFormes {
 	private ArrayList<FigureColoree> lfip;
 	private DessinModel dm;
+	private  FigureColoree figureselec;
+	ArrayList<Point> tabP = new ArrayList<Point>();
 	MouseListener mlmf;
 	MouseMotionListener mml;
 	public ManipulateurFormes(DessinModel dme) {
 		dm=dme;
 		mlmf = new MouseListener() {
-			
+
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				boolean res =false;//dm.getlfi().get(0).estDedans(e.getX(), e.getY());;
-				int i=0;
-				while(res==false && i < dm.getlfi().size()){
-				res = dm.getlfi().get(i).estDedans(e.getX(), e.getY());
-				if(!res){
-					i++;
-				}
-				}
-				
-				if(res){
-					System.out.println("selection:"+dm.getlfi().get(i));
-					dm.getlfi().get(i).selectionne();
-				}
-				else{
-					System.out.println("pas de selection");
-				}
-				
+				figureselec=dm.selectionner(e.getX(),e.getY());
+
 			}
-			
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 			}
 		};
 		mml = new MouseMotionListener() {
-			
+
 			@Override
 			public void mouseMoved(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mouseDragged(MouseEvent e) {
 				Point p = new Point(e.getX(),e.getY());
+				tabP.add(p);
 				System.out.println("draggg");
-				
+				if(figureselec!=null) {
+					System.out.println(figureselec);
+					if(tabP.size()>2) {
+						int tx,ty;
+						System.out.println("translation");
+						tx=tabP.get(tabP.size()-2).rendreX()-tabP.get(tabP.size()-1).rendreX();
+						ty=tabP.get(tabP.size()-2).rendreY()-tabP.get(tabP.size()-1).rendreY();
+						figureselec.translation(tx, ty);
+
+					}
+				}
+				else {
+					System.out.println("dragg mais pas de selection");
+				}
+
 				// TODO Auto-generated method stub
-				
+
 			}
 		};
 	}
@@ -89,7 +90,7 @@ public class ManipulateurFormes {
 	public MouseMotionListener getMml() {
 		return mml;
 	}
-	
-	
+
+
 
 }

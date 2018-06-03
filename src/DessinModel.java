@@ -59,5 +59,9 @@ public class DessinModel extends Observable{
 	public ArrayList<FigureColoree> getlfi(){
 		return lfi;
 	}
+	
+	public void selectionner() {
+		
+	}
 
 }

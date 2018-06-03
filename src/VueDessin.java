@@ -96,6 +96,7 @@ public class VueDessin extends JPanel implements Observer{
 		default:
 			break;
 		}
+		repaint();
 
 	}
 

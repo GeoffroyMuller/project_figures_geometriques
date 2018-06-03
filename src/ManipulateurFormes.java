@@ -34,6 +34,7 @@ public class ManipulateurFormes {
 				
 				if(res){
 					System.out.println("selection:"+dm.getlfi().get(i));
+					dm.getlfi().get(i).selectionne();
 				}
 				else{
 					System.out.println("pas de selection");

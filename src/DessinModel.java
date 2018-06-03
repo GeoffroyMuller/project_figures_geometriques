@@ -59,5 +59,28 @@ public class DessinModel extends Observable{
 	public ArrayList<FigureColoree> getlfi(){
 		return lfi;
 	}
+	
+	public FigureColoree selectionner(int x, int y) {
+		boolean res =false;//dm.getlfi().get(0).estDedans(e.getX(), e.getY());;
+		int i=0;
+		while(res==false && i < getlfi().size()){
+			res = getlfi().get(i).estDedans(x,y);
+			if(!res){
+				i++;
+			}
+		}
+
+		if(res){
+			
+			System.out.println("selection:"+lfi.get(i));
+			return lfi.get(i);
+		}
+		else{
+			System.out.println("pas de selection");
+			return null;
+		}
+
+	}
+	
 
 }

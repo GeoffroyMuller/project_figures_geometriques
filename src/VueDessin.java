@@ -72,7 +72,7 @@ public class VueDessin extends JPanel implements Observer{
 		case SUP_FF :
 			removeMouseListener(dm.ff.getMl());
 			System.out.println("remove listener ff");
-			repaint();
+
 			break;
 
 		case ADD_FF:
@@ -96,6 +96,7 @@ public class VueDessin extends JPanel implements Observer{
 		default:
 			break;
 		}
+		repaint();
 
 	}
 

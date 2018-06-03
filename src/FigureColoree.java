@@ -37,8 +37,10 @@ public abstract class FigureColoree {
 	
 	public void translation(int tx,int ty){
 		for (int i = 0; i < tab_mem.size(); i++) {
-			tab_mem.get(i).translation(tx, ty);;
+			tab_mem.get(i).translation(tx, ty);
+			
 		}
+		
 	}
 	
 	public void transformation(int a,int b,int c){

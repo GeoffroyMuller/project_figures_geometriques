@@ -51,8 +51,16 @@ public class VueDessin extends JPanel implements Observer{
 		int [] xd = {10,20,30};
 		int [] yd = {10,60,30};
 		g.drawPolygon(xd, yd, 3);*/
+		int xcar = 10;
+		int ycar = 10;
 		for (int i = 0; i < lfi.size(); i++) {
 			lfi.get(i).affiche(g);
+			if(lfi.get(i).isSelected()) {
+
+				g.drawRect(xcar, ycar, 10, 10);
+				g.drawString("selection:"+lfi.get(i),20 , xcar+20);
+				xcar += 15;
+			}
 			System.out.println("afficher figure num :"+i);
 		}
 

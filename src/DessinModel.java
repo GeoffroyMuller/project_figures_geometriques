@@ -73,6 +73,9 @@ public class DessinModel extends Observable{
 		if(res){
 
 			System.out.println("selection:"+lfi.get(i));
+			lfi.get(i).selectionne();
+			setChanged();
+			notifyObservers(VueDessin.NO_CHANGE);
 			return lfi.get(i);
 		}
 		else{

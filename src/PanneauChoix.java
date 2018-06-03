@@ -12,6 +12,8 @@ public class PanneauChoix extends JPanel{
 	private JComboBox cbcolor= new JComboBox(new String[]{"Bleu","Rouge","Vert"});
 	private DessinModel dm;
 	private Color c;
+	private boolean rbnewact = false;//true si rbnew a ete selectionner au moin une foie
+	private boolean rbmanipact = false;
 
 	private ButtonGroup bg = new ButtonGroup();
 
@@ -38,13 +40,18 @@ public class PanneauChoix extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if(rbnew.isSelected()){
+					System.out.println("=====new figure=====");
 					cbfigue.setEnabled(true);
 					cbcolor.setEnabled(true);
 					creeFigure();
 					determineCouleur();
-					dm.finManipulation();
+					rbnewact = true;
+					if(rbmanipact) {
+						dm.finManipulation();
+					}
 				}
 				if(rbmain.isSelected()){
+					System.out.println("=====trait main=====");
 					cbfigue.setEnabled(false);
 					cbcolor.setEnabled(true);
 					determineCouleur();
@@ -52,10 +59,14 @@ public class PanneauChoix extends JPanel{
 					dm.finCreation();
 				}
 				if(rbmanip.isSelected()){
+					System.out.println("=====manipulation=====");
 					cbfigue.setEnabled(false);
 					cbcolor.setEnabled(false);
 					modifierFigure();
-					dm.finCreation();
+					rbmanipact = true;
+					if(rbnewact) {
+						dm.finCreation();
+					}
 				}
 			}
 		};
@@ -96,7 +107,7 @@ public class PanneauChoix extends JPanel{
 
 	public void modifierFigure(){
 		this.determineCouleur();
-		ManipulateurFormes mpf = new ManipulateurFormes(this.dm);
+		//ManipulateurFormes mpf = new ManipulateurFormes(this.dm);
 		dm.manipuler();
 	}
 

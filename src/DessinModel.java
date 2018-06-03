@@ -5,7 +5,7 @@ public class DessinModel extends Observable{
 	private ArrayList<FigureColoree> lfi;
 	FabricantFigures ff;
 	ManipulateurFormes mf;
-	
+
 	public DessinModel() {
 		lfi = new ArrayList<FigureColoree>();
 	}
@@ -27,24 +27,20 @@ public class DessinModel extends Observable{
 		setChanged();	
 		notifyObservers(VueDessin.ADD_FF);//add fabricant
 	}
-	
+
 	public void manipuler(){
-			if(mf==null){
-				mf = new ManipulateurFormes(this);
-				setChanged();	
-				notifyObservers(VueDessin.ADD_MF);//add Manipulateur
-			}
-			
+		if(mf.getMlmf()==null && mf.getMml()==null) {
+			mf = new ManipulateurFormes(this);
 			setChanged();	
-			notifyObservers(VueDessin.NO_CHANGE);//pas de changement
-		
+			notifyObservers(VueDessin.ADD_MF);//add Manipulateur
+		}
 	}
-	
+
 	public void finManipulation(){
 		setChanged();
 		notifyObservers(VueDessin.SUP_MF);
 	}
-	
+
 	public void finCreation(){
 		setChanged();
 		notifyObservers(VueDessin.SUP_FF);
@@ -53,5 +49,5 @@ public class DessinModel extends Observable{
 	public ArrayList<FigureColoree> getlfi(){
 		return lfi;
 	}
-	
+
 }

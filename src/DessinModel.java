@@ -3,11 +3,14 @@ import java.util.Observable;
 
 public class DessinModel extends Observable{
 	private ArrayList<FigureColoree> lfi;
+	public static boolean AJOUT_TERMINE;
 	FabricantFigures ff;
 	ManipulateurFormes mf;
 
 	public DessinModel() {
 		lfi = new ArrayList<FigureColoree>();
+		AJOUT_TERMINE =false;
+
 	}
 
 	public void ajoute(FigureColoree fc){
@@ -15,6 +18,9 @@ public class DessinModel extends Observable{
 		System.out.println("dessin modele updater");
 		setChanged();	
 		notifyObservers(VueDessin.SUP_FF);//remove Fabricant
+		AJOUT_TERMINE=true;
+		constructionIterer(fc);
+		
 	}
 
 	public void construit(FigureColoree fc){
@@ -28,21 +34,21 @@ public class DessinModel extends Observable{
 		notifyObservers(VueDessin.ADD_FF);//add fabricant
 	}
 
+	
+	public void constructionIterer(FigureColoree fc) {	
+		FigureColoree nfc = fc.cloner();
+		construit(nfc);
+	}
+	
 	public void manipuler(){
-		/*if(mf!=null) {
-		}
-
-		mf = new ManipulateurFormes(this);
-		setChanged();	
-		notifyObservers(VueDessin.ADD_MF);//add Manipulateur*/
 		if(mf!=null){
 			System.out.println("-remove deb modification");
 			setChanged();	
-			notifyObservers(VueDessin.SUP_MF);//remove Fabricant
+			notifyObservers(VueDessin.SUP_MF);//remove manipuateur
 		}
 		mf = new ManipulateurFormes(this);
 		setChanged();	
-		notifyObservers(VueDessin.ADD_MF);//add fabricant
+		notifyObservers(VueDessin.ADD_MF);//add manipulateur
 	}
 
 
@@ -116,5 +122,7 @@ public class DessinModel extends Observable{
 		}
 
 	}
+	
+
 
 }

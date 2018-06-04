@@ -54,7 +54,9 @@ public class VueDessin extends JPanel implements Observer{
 		int xcar = 10;
 		int ycar = 10;
 		for (int i = 0; i < lfi.size(); i++) {
+			
 			lfi.get(i).affiche(g);
+			
 			if(lfi.get(i).isSelected()) {
 				g.drawRect(xcar, ycar, 10, 10);
 				g.drawString("selection:"+lfi.get(i),20 , xcar+20);
@@ -67,7 +69,6 @@ public class VueDessin extends JPanel implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		DessinModel dm = (DessinModel)o;
 		lfi = dm.getlfi();
 		int cas =(int)arg;

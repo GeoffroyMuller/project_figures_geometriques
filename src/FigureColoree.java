@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
-public abstract class FigureColoree {
+public abstract class FigureColoree implements Cloneable{
 	
 	public static final int TAILLE_CARRE_SELECTION=10;
 	public static final int PERIPHERIE_CARRE_SELECTION=20;
@@ -74,6 +74,17 @@ public abstract class FigureColoree {
 
 	public boolean isSelected() {
 		return selected;
+	}
+	
+	public FigureColoree cloner(){
+		FigureColoree res= null;
+		try {
+		res = (FigureColoree)this.clone();
+		} catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+		}
+		
+		return res;
 	}
 
 	

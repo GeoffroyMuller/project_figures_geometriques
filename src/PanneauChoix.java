@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.concurrent.Delayed;
 
 import javax.swing.*;
 
@@ -50,6 +51,7 @@ public class PanneauChoix extends JPanel{
 					if(rbmanipact) {
 						dm.finManipulation();
 					}
+					
 					//rbnew.doClick();
 				}
 				if(rbmain.isSelected()){
@@ -88,7 +90,6 @@ public class PanneauChoix extends JPanel{
 			Quadrilatere q =new Quadrilatere();
 			q.changeCouleur(c);
 			dm.construit(q);
-			//rbnew.doClick();
 			break;
 		case 1 :
 			System.out.println("Triangle");
@@ -113,6 +114,8 @@ public class PanneauChoix extends JPanel{
 		default :
 			System.out.println("default");
 		}
+		
+		
 	}
 
 	public void modifierFigure(){

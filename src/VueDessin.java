@@ -30,6 +30,9 @@ public class VueDessin extends JPanel implements Observer{
 	public static final int NO_CHANGE = 0;
 	public static final int SUP_MF = 200;
 	public static final int ADD_MF = 201;
+	
+	public static final int SUP_ML = 300;
+	public static final int ADD_ML = 301;
 
 
 	private ArrayList<FigureColoree> lfi;
@@ -100,8 +103,23 @@ public class VueDessin extends JPanel implements Observer{
 			System.out.println("remove des listenner de manipulation");
 
 			break;
+			
+
+		case ADD_ML:
+			addMouseListener(dm.ml.getMlml());
+			addMouseMotionListener(dm.ml.getMml());
+			System.out.println("ajout des listenner de dessin mainlevee");
+			break;
+
+		case SUP_ML:
+			removeMouseListener(dm.ml.getMlml());
+			removeMouseMotionListener(dm.ml.getMml());
+			System.out.println("remove des listenner de dessin main leve");
+
+			break;
 
 		default:
+			System.out.println("operation sur les lstener inconnu");
 			break;
 		}
 		repaint();

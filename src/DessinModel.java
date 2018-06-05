@@ -3,43 +3,68 @@ import java.util.Observable;
 
 public class DessinModel extends Observable{
 	private ArrayList<FigureColoree> lfi;
-	public static boolean AJOUT_TERMINE;
 	FabricantFigures ff;
 	ManipulateurFormes mf;
+	MainLevee ml;
 
 	public DessinModel() {
 		lfi = new ArrayList<FigureColoree>();
-		AJOUT_TERMINE =false;
 
 	}
 
 	public void ajoute(FigureColoree fc){
 		lfi.add(fc);
-		System.out.println("dessin modele updater");
-		setChanged();	
-		notifyObservers(VueDessin.SUP_FF);//remove Fabricant
-		AJOUT_TERMINE=true;
-		constructionIterer(fc);
-		
-	}
-
-	public void construit(FigureColoree fc){
-		if(ff!=null){
-			System.out.println("-remove deb construit");
+		if(fc instanceof Trait){
+			System.out.println("fin de ajout suppresion listener");
+			setChanged();	
+			notifyObservers(VueDessin.SUP_ML);//remove Fabricant	
+		}
+		else{
+			System.out.println("fin de ajout suppresion listener");
 			setChanged();	
 			notifyObservers(VueDessin.SUP_FF);//remove Fabricant
 		}
-		ff = new FabricantFigures(fc, this);
-		setChanged();	
-		notifyObservers(VueDessin.ADD_FF);//add fabricant
+		constructionIterer(fc);
+
+
 	}
 
-	
+	public void construit(FigureColoree fc){
+		if(fc instanceof Trait){
+			System.out.println("trait");
+		}
+		else{
+			System.out.println("autre");
+		}
+			
+		if(fc instanceof Trait){
+			if(ml!=null){
+				System.out.println("supreesion ml");
+				setChanged();	
+				notifyObservers(VueDessin.SUP_ML);//remove Fabricant
+			}
+			ml = new MainLevee(fc, this);
+			setChanged();	
+			notifyObservers(VueDessin.ADD_ML);//add fabricant
+		}
+		else{
+			if(ff!=null){
+				System.out.println("suppresion ff");
+				setChanged();	
+				notifyObservers(VueDessin.SUP_FF);//remove Fabricant
+			}
+			ff = new FabricantFigures(fc, this);
+			setChanged();	
+			notifyObservers(VueDessin.ADD_FF);//add fabricant
+		}
+	}
+
+
 	public void constructionIterer(FigureColoree fc) {	
 		FigureColoree nfc = fc.cloner();
 		construit(nfc);
 	}
-	
+
 	public void manipuler(){
 		if(mf!=null){
 			System.out.println("-remove deb modification");
@@ -52,6 +77,10 @@ public class DessinModel extends Observable{
 	}
 
 
+
+
+
+
 	public void finManipulation(){
 		setChanged();
 		notifyObservers(VueDessin.SUP_MF);
@@ -61,6 +90,14 @@ public class DessinModel extends Observable{
 		setChanged();
 		notifyObservers(VueDessin.SUP_FF);
 	}
+
+	public void finDessinMainLevee(){
+		setChanged();
+		notifyObservers(VueDessin.SUP_ML);
+	}
+
+
+
 
 	public ArrayList<FigureColoree> getlfi(){
 		return lfi;
@@ -93,7 +130,7 @@ public class DessinModel extends Observable{
 		}
 
 	}
-	
+
 	public void deSelectionnerTout() {
 		for(int j=0;j<lfi.size();j++) {
 			lfi.get(j).deSelectionne();
@@ -122,7 +159,7 @@ public class DessinModel extends Observable{
 		}
 
 	}
-	
+
 
 
 }

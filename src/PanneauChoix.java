@@ -15,6 +15,7 @@ public class PanneauChoix extends JPanel{
 	private Color c;
 	private boolean rbnewact = false;//true si rbnew a ete selectionner au moin une foie
 	private boolean rbmanipact = false;
+	private boolean rbmainact = false;
 
 	private ButtonGroup bg = new ButtonGroup();
 
@@ -51,7 +52,9 @@ public class PanneauChoix extends JPanel{
 					if(rbmanipact) {
 						dm.finManipulation();
 					}
-					
+					if(rbmainact){
+						dm.finDessinMainLevee();
+					}
 					//rbnew.doClick();
 				}
 				if(rbmain.isSelected()){
@@ -59,9 +62,16 @@ public class PanneauChoix extends JPanel{
 					dm.deSelectionnerTout();
 					cbfigue.setEnabled(false);
 					cbcolor.setEnabled(true);
+					creerTrait();
 					determineCouleur();
+					rbmainact=true;
+					if(rbmanipact){
 					dm.finManipulation();
+					}
+					if(rbnewact){
+						
 					dm.finCreation();
+					}
 				}
 				if(rbmanip.isSelected()){
 					System.out.println("=====manipulation=====");
@@ -72,6 +82,9 @@ public class PanneauChoix extends JPanel{
 					if(rbnewact) {
 						dm.finCreation();
 					}
+					if(rbmainact){
+						dm.finDessinMainLevee();
+					}
 				}
 			}
 		};
@@ -80,6 +93,14 @@ public class PanneauChoix extends JPanel{
 		rbmanip.addActionListener(acl);
 		cbcolor.addActionListener(acl);
 		cbfigue.addActionListener(acl);
+	}
+	
+	private void creerTrait(){
+		this.determineCouleur();
+		System.out.println("//////new trait///////");
+		Trait t = new Trait();
+		t.changeCouleur(c);
+		dm.construit(t);
 	}
 
 	private void creeFigure(){
@@ -117,6 +138,8 @@ public class PanneauChoix extends JPanel{
 		
 		
 	}
+	
+
 
 	public void modifierFigure(){
 		this.determineCouleur();

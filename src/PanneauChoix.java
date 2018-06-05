@@ -111,6 +111,14 @@ public class PanneauChoix extends JPanel{
 			car.changeCouleur(c);
 			dm.construit(car);
 			break;
+			
+		case 4 : 
+			System.out.println("Losange");
+			Losange los = new Losange();
+			los.changeCouleur(c);
+			dm.construit(los);
+			break;
+			
 		default :
 			System.out.println("default");
 		}

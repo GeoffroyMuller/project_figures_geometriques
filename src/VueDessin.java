@@ -53,6 +53,7 @@ public class VueDessin extends JPanel implements Observer{
 		g.drawPolygon(xd, yd, 3);*/
 		int xcar = 10;
 		int ycar = 10;
+		//g.fillOval(20, 20, 60, 100);
 		for (int i = 0; i < lfi.size(); i++) {
 			
 			lfi.get(i).affiche(g);

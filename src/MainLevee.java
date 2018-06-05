@@ -24,10 +24,6 @@ public class MainLevee {
 					lp.add(p);
 					fc.modifierPoints(lp);
 					System.out.println("drag main levee");
-					System.out.println(lp);
-					
-					//System.out.println(p);
-					//System.out.println("event mouse draged")
 			}
 			@Override
 			public void mouseMoved(MouseEvent e){

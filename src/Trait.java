@@ -29,10 +29,8 @@ public class Trait extends FigureColoree{
 	}
 	
 	public void affiche(Graphics g){
-		System.out.println("avant super affiche");
 		super.affiche(g);
-		System.out.println("apres super afiiche");
-		System.out.println("affichage trait");
+
 		System.out.println(tab_mem);
 		for(int i=0;i<this.tab_mem.size()-1;i++){
 			int x1 =this.tab_mem.get(i).rendreX();

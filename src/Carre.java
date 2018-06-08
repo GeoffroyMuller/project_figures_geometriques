@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Carre extends Rectangle{
+public class Carre extends Quadrilatere{
 
 	public Carre() {
 		super();
@@ -51,6 +51,28 @@ public class Carre extends Rectangle{
 		
 		System.out.println(tab_mem);
 
+	}
+	
+	public void deformation(int tx,int ty,Point p) {
+		super.deformation(tx, ty, p);
+		
+		ArrayList<Point> ptab_mem = new ArrayList<Point>();
+		if(p.distance(tab_mem.get(2))<TAILLE_CARRE_SELECTION) {
+			tab_mem.get(1).translation(tx, 0);
+		}
+		
+		if(p.distance(tab_mem.get(3))<TAILLE_CARRE_SELECTION) {
+			
+			tab_mem.get(0).translation(tx, 0);
+		}
+		ptab_mem.add(tab_mem.get(0));
+		ptab_mem.add(tab_mem.get(1));
+		this.modifierPoints(ptab_mem);
+	}
+
+	
+	public int nbClics() {
+		return 2;
 	}
 
 

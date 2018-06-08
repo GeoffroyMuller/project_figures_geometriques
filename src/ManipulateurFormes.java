@@ -9,6 +9,8 @@ public class ManipulateurFormes {
 	private ArrayList<FigureColoree> lfip;
 	private DessinModel dm;
 	private  FigureColoree figureselec;
+	private boolean surCarreDeSelection;
+	private Point pointDeSelection;
 	ArrayList<Point> tabP = new ArrayList<Point>();
 	MouseListener mlmf;
 	MouseMotionListener mml;
@@ -24,7 +26,21 @@ public class ManipulateurFormes {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				figureselec=dm.selectionner(e.getX(),e.getY());
+				if(figureselec!=null) {
+					if(figureselec.estSurCarreSelection(e.getX(), e.getY())) {
+						System.out.println("sur carre de selection"+figureselec);
+						surCarreDeSelection=true;
+						pointDeSelection=figureselec.pointDeSelection(e.getX(), e.getY());
+					}
+					else {
+						figureselec=dm.selectionner(e.getX(),e.getY());
+						surCarreDeSelection=false;
+					}
+				}
+				else {
+					figureselec=dm.selectionner(e.getX(),e.getY());
+					surCarreDeSelection=false;
+				}
 
 			}
 
@@ -56,14 +72,22 @@ public class ManipulateurFormes {
 			@Override
 			public void mouseDragged(MouseEvent e) {
 				Point p = new Point(e.getX(),e.getY());
-				if(figureselec!=null) {
-					tabP.add(p);
+				if(surCarreDeSelection) {
+					if(figureselec!=null) {
+						tabP.add(p);
+						dm.deformer(tabP, figureselec, pointDeSelection);
+					}
 				}
-				System.out.println("draggg");
-				dm.translater(tabP, figureselec);
+				else {
+					if(figureselec!=null) {
+						tabP.add(p);
+					}
+					System.out.println("draggg");
+					dm.translater(tabP, figureselec);
 
-				// TODO Auto-generated method stub
+					// TODO Auto-generated method stub
 
+				}
 			}
 		};
 	}

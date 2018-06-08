@@ -42,6 +42,6 @@ public abstract class Polygone extends FigureColoree{
 		return p;
 	}
 	
-	
+
 
 }

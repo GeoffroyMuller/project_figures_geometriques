@@ -24,7 +24,20 @@ public class Rectangle extends Quadrilatere
 	
 
 	
-	public void transformation(int a,int b,int c){
+	public void deformation(int tx,int ty,Point p) {
+		super.deformation(tx, ty, p);
+		ArrayList<Point> ptab_mem = new ArrayList<Point>();
+		if(p.distance(tab_mem.get(1))<TAILLE_CARRE_SELECTION) {
+			tab_mem.get(0).translation(0, ty);
+			tab_mem.get(2).translation(tx, 0);
+		}
 		
+		if(p.distance(tab_mem.get(3))<TAILLE_CARRE_SELECTION) {
+			tab_mem.get(0).translation(tx, 0);
+			tab_mem.get(2).translation(0, ty);
+		}
+		ptab_mem.add(tab_mem.get(0));
+		ptab_mem.add(tab_mem.get(2));
+		this.modifierPoints(ptab_mem);
 	}
 }

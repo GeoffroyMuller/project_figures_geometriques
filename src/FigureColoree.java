@@ -52,8 +52,8 @@ public abstract class FigureColoree implements Cloneable{
 		
 	}
 	
-	public void transformation(int a,int b,int c){
-		
+	public void deformation(int tx,int ty,Point p){
+		p.translation(tx, ty);
 	}
 	
 	public int carreDeSelection(int a,int b){
@@ -87,7 +87,30 @@ public abstract class FigureColoree implements Cloneable{
 		return res;
 	}
 
+	public boolean estSurCarreSelection(int a,  int b) {
+		boolean res = false;
+		Point p = new Point(a, b);
+		for (int i = 0; i < tab_mem.size(); i++) {
+			if(tab_mem.get(i).distance(p)<= FigureColoree.PERIPHERIE_CARRE_SELECTION) {
+				res = true;
+			}
+		}
+		
+		return res;
+	}
 	
+	public Point pointDeSelection(int a, int b) {
+		Point p = new Point(a,b);
+		Point res = null;
+		if (estSurCarreSelection(a, b)) {
+			for (int i = 0; i < tab_mem.size(); i++) {
+				if(tab_mem.get(i).distance(p)<= FigureColoree.PERIPHERIE_CARRE_SELECTION) {
+					res=tab_mem.get(i);
+				}
+			}
+		}
+		return res;
+	}
 	
 	
 

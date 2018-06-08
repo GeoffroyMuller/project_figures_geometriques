@@ -36,7 +36,7 @@ public class DessinModel extends Observable{
 		else{
 			System.out.println("autre");
 		}
-			
+
 		if(fc instanceof Trait){
 			if(ml!=null){
 				System.out.println("supreesion ml");
@@ -158,6 +158,20 @@ public class DessinModel extends Observable{
 			System.out.println("dragg mais pas de selection");
 		}
 
+	}
+
+	public void deformer(ArrayList<Point> lp, FigureColoree fc,Point p) {
+		if(fc!=null) {
+			System.out.println("deformation de "+fc);
+			if(lp.size()>2) {
+				int tx,ty;
+				tx=lp.get(lp.size()-1).rendreX()-lp.get(lp.size()-2).rendreX();
+				ty=lp.get(lp.size()-1).rendreY()-lp.get(lp.size()-2).rendreY();
+				fc.deformation(tx, ty, p);
+				setChanged();
+				notifyObservers(VueDessin.NO_CHANGE);
+			}
+		}
 	}
 
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Losange extends Rectangle{
+public class Losange extends Quadrilatere{
 
 	public Losange() {
 		// TODO Auto-generated constructor stub
@@ -16,6 +16,10 @@ public class Losange extends Rectangle{
 		Point np2 = new Point(p1.rendreX(),p1.rendreY()+dist);
 		tab_mem.add(np1);
 		tab_mem.add(np2);
+	}
+	
+	public int nbClics() {
+		return 2;
 	}
 
 }

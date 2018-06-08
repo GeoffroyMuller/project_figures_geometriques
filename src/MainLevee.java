@@ -19,10 +19,11 @@ public class MainLevee {
 
 			@Override
 			public void mouseDragged(MouseEvent e){	
-
 					Point p= new Point(e.getX(),e.getY());
 					lp.add(p);
 					fc.modifierPoints(lp);
+					dm.rafraichir();
+					
 					System.out.println("drag main levee");
 			}
 			@Override
@@ -37,9 +38,8 @@ public class MainLevee {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				dm.ajoute(fc);
-				System.out.println("released");
-
+				//dm.ajoute(fc);
+				//lp.clear();
 			}
 
 			@Override
@@ -47,7 +47,7 @@ public class MainLevee {
 				System.out.println("clicked");
 				Point p = new Point(e.getX(),e.getY());
 				lp.add(p);
-
+				
 				//System.out.println("envent listener mouse clicked");
 
 			}

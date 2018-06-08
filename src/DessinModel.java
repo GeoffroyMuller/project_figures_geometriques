@@ -173,6 +173,18 @@ public class DessinModel extends Observable{
 			}
 		}
 	}
+	
+	public void effacerTout() {
+		lfi.clear();
+		setChanged();
+		notifyObservers(VueDessin.NO_CHANGE);
+	}
+	
+	public void rafraichir() {
+		System.out.println("rafraichir");
+		setChanged();
+		notifyObservers(VueDessin.NO_CHANGE);
+	}
 
 
 

@@ -18,7 +18,7 @@ public abstract class Polygone extends FigureColoree{
 			yPoints[i]=tab_mem.get(i).rendreY();
 		}
 		p = new Polygon(xPoints, yPoints, tab_mem.size());
-		System.out.println(tab_mem);
+		//System.out.println(tab_mem);
 		g.fillPolygon(xPoints, yPoints, tab_mem.size());
 	}
 

@@ -9,8 +9,9 @@ public class PanneauChoix extends JPanel{
 	private JRadioButton rbnew = new JRadioButton("Nouvelle figure");
 	private JRadioButton rbmain = new JRadioButton("Tracés à main levée");
 	private JRadioButton rbmanip = new JRadioButton("Manipulations");
-	private JComboBox cbfigue= new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle","Carre","Losange","Elipse"});
-	private JComboBox cbcolor= new JComboBox(new String[]{"Bleu","Rouge","Vert"});
+	private JComboBox cbfigue = new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle","Carre","Losange","Elipse"});
+	private JComboBox cbcolor = new JComboBox(new String[]{"Bleu","Rouge","Vert"});
+	private JButton befface = new JButton("Effacer");
 	private DessinModel dm;
 	private Color c;
 	private boolean rbnewact = false;//true si rbnew a ete selectionner au moin une foie
@@ -32,10 +33,20 @@ public class PanneauChoix extends JPanel{
 		rb.add(rbmanip);
 		cb.add(cbfigue);
 		cb.add(cbcolor);
+		cb.add(befface);
 		rb.setBackground(new Color(70,97,110));
 		cb.setBackground(new Color(47,66,75));
 		add(rb, BorderLayout.NORTH);
 		add(cb, BorderLayout.CENTER);
+		ActionListener acleffacer = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("Efface Tout");
+				dm.effacerTout();
+			}
+		};
 		ActionListener acl = new ActionListener() {
 
 			@Override
@@ -93,6 +104,7 @@ public class PanneauChoix extends JPanel{
 		rbmanip.addActionListener(acl);
 		cbcolor.addActionListener(acl);
 		cbfigue.addActionListener(acl);
+		befface.addActionListener(acleffacer);
 	}
 	
 	private void creerTrait(){

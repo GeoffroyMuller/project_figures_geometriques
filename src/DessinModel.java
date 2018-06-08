@@ -17,14 +17,15 @@ public class DessinModel extends Observable{
 		if(fc instanceof Trait){
 			System.out.println("fin de ajout suppresion listener");
 			setChanged();	
-			notifyObservers(VueDessin.SUP_ML);//remove Fabricant	
+			notifyObservers(VueDessin.NO_CHANGE);//remove Fabricant	
 		}
 		else{
 			System.out.println("fin de ajout suppresion listener");
 			setChanged();	
 			notifyObservers(VueDessin.SUP_FF);//remove Fabricant
+			constructionIterer(fc);
 		}
-		constructionIterer(fc);
+		
 
 
 	}
@@ -63,6 +64,12 @@ public class DessinModel extends Observable{
 	public void constructionIterer(FigureColoree fc) {	
 		FigureColoree nfc = fc.cloner();
 		construit(nfc);
+	}
+	
+	public void initNouveauTrait(FigureColoree fc) {
+		setChanged();	
+		notifyObservers(VueDessin.SUP_ML);
+		constructionIterer(fc);
 	}
 
 	public void manipuler(){

@@ -40,6 +40,7 @@ public class MainLevee {
 				// TODO Auto-generated method stub
 				//dm.ajoute(fc);
 				//lp.clear();
+				dm.initNouveauTrait(fc);
 			}
 
 			@Override
@@ -47,7 +48,7 @@ public class MainLevee {
 				System.out.println("clicked");
 				Point p = new Point(e.getX(),e.getY());
 				lp.add(p);
-				
+				dm.ajoute(fc);
 				//System.out.println("envent listener mouse clicked");
 
 			}

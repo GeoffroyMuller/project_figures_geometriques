@@ -11,7 +11,7 @@ public class PanneauChoix extends JPanel{
 	private JRadioButton rbmanip = new JRadioButton("Manipulations");
 	private JComboBox cbfigue = new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle","Carre","Losange","Elipse"});
 	private JComboBox cbcolor = new JComboBox(new String[]{"Bleu","Rouge","Vert"});
-	private JButton befface = new JButton("Effacer");
+	private JButton befface = new JButton("Effacer Tout");
 	private DessinModel dm;
 	private Color c;
 	private boolean rbnewact = false;//true si rbnew a ete selectionner au moin une foie

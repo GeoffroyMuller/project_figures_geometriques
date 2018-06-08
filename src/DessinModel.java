@@ -6,12 +6,19 @@ public class DessinModel extends Observable{
 	FabricantFigures ff;
 	ManipulateurFormes mf;
 	MainLevee ml;
-
+	
+	/**
+	 * Constructeur Vide
+	 */
 	public DessinModel() {
 		lfi = new ArrayList<FigureColoree>();
 
 	}
-
+	
+	/**
+	 * methode qui ajoute une FigureColoree a un DessinModel
+	 * @param fc FigureColoree a ajouter
+	 */
 	public void ajoute(FigureColoree fc){
 		lfi.add(fc);
 		if(fc instanceof Trait){
@@ -29,7 +36,11 @@ public class DessinModel extends Observable{
 
 
 	}
-
+	
+	/**
+	 * 
+	 * @param fc
+	 */
 	public void construit(FigureColoree fc){
 		if(fc instanceof Trait){
 			System.out.println("trait");
@@ -60,18 +71,27 @@ public class DessinModel extends Observable{
 		}
 	}
 
-
+	/**
+	 * 
+	 * @param fc
+	 */
 	public void constructionIterer(FigureColoree fc) {	
 		FigureColoree nfc = fc.cloner();
 		construit(nfc);
 	}
-	
+	/**
+	 * 
+	 * @param fc
+	 */
 	public void initNouveauTrait(FigureColoree fc) {
 		setChanged();	
 		notifyObservers(VueDessin.SUP_ML);
 		constructionIterer(fc);
 	}
-
+	
+	/**
+	 * permet la manipulation de forme en ajoutant le listner manipulateurforme
+	 */
 	public void manipuler(){
 		if(mf!=null){
 			System.out.println("-remove deb modification");

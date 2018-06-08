@@ -11,6 +11,7 @@ public class FabricantFigures {
 	MouseListener ml;
 
 	private ArrayList<Point> lp= new ArrayList<Point>();
+	
 	public FabricantFigures(FigureColoree fc,DessinModel dm) {
 		ml = new MouseListener() {
 

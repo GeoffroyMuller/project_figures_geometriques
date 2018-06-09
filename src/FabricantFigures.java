@@ -12,6 +12,11 @@ public class FabricantFigures {
 
 	private ArrayList<Point> lp= new ArrayList<Point>();
 	
+	/**
+	 * Constructeur principal
+	 * @param fc FigureColoree a fabriquer
+	 * @param dm DessinModel auquel s'ajoute la FigureColoree
+	 */
 	public FabricantFigures(FigureColoree fc,DessinModel dm) {
 		ml = new MouseListener() {
 
@@ -61,11 +66,19 @@ public class FabricantFigures {
 			}
 		};
 	}
-
+	
+	/**
+	 * get MouseListener Ml
+	 * @return MouseListener Ml
+	 */
 	public MouseListener getMl() {
 		return ml;
 	}
-
+	
+	/**
+	 * get ArrayList de Point
+	 * @return ArrayList de Point
+	 */
 	public ArrayList<Point> getLp() {
 		return lp;
 	}

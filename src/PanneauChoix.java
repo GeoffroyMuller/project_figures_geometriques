@@ -9,7 +9,7 @@ public class PanneauChoix extends JPanel{
 	private JRadioButton rbnew = new JRadioButton("Nouvelle figure");
 	private JRadioButton rbmain = new JRadioButton("Tracés à main levée");
 	private JRadioButton rbmanip = new JRadioButton("Manipulations");
-	private JComboBox cbfigue = new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle","Carre","Losange","Elipse"});
+	private JComboBox cbfigue = new JComboBox(new String[]{"Quadrilatere","Triangle","Rectangle","Carre","Losange"});
 	private JComboBox cbcolor = new JComboBox(new String[]{"Bleu","Rouge","Vert"});
 	private JButton befface = new JButton("Effacer Tout");
 	private DessinModel dm;
@@ -150,13 +150,6 @@ public class PanneauChoix extends JPanel{
 			Losange los = new Losange();
 			los.changeCouleur(c);
 			dm.construit(los);
-			break;
-			
-		case 5 : 
-			System.out.println("Elipse");
-			Elipse eli= new Elipse();
-			eli.changeCouleur(c);
-			dm.construit(eli);
 			break;
 			
 		default :

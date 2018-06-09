@@ -38,8 +38,8 @@ public class DessinModel extends Observable{
 	}
 	
 	/**
-	 * 
-	 * @param fc
+	 * ajout ou close de listner permetant la construction d'une FigureColoree passer en parametre
+	 * @param fc FigureColoree a construire
 	 */
 	public void construit(FigureColoree fc){
 		if(fc instanceof Trait){
@@ -72,15 +72,16 @@ public class DessinModel extends Observable{
 	}
 
 	/**
-	 * 
-	 * @param fc
+	 * permet de relancer une construction (sans avoir a rappuyer sur le boutton de construction de figure)
+	 * d'une FigureColoree passer en parametre
+	 * @param fc FigureColoree a construire 
 	 */
 	public void constructionIterer(FigureColoree fc) {	
 		FigureColoree nfc = fc.cloner();
 		construit(nfc);
 	}
 	/**
-	 * 
+	 * initialise un nouveau Trait 
 	 * @param fc
 	 */
 	public void initNouveauTrait(FigureColoree fc) {
@@ -107,29 +108,44 @@ public class DessinModel extends Observable{
 
 
 
-
+	/**
+	 * met fin a la manipulation 
+	 */
 	public void finManipulation(){
 		setChanged();
 		notifyObservers(VueDessin.SUP_MF);
 	}
 
+	/**
+	 * met fin a la Creation
+	 */
 	public void finCreation(){
 		setChanged();
 		notifyObservers(VueDessin.SUP_FF);
 	}
 
+	/**
+	 * met fin a la Creation d'un DessinMainLevee
+	 */
 	public void finDessinMainLevee(){
 		setChanged();
 		notifyObservers(VueDessin.SUP_ML);
 	}
 
-
-
-
+	/**
+	 * get Arraylist de Point
+	 * @return Arraylist de Point
+	 */
 	public ArrayList<FigureColoree> getlfi(){
 		return lfi;
 	}
 
+	/**
+	 * permet la selection d'une FigureColoree appartenant a DessinModel via les cooredonee d'un Point passer en parametre
+	 * @param x	abscise du Point
+	 * @param y	ordonnee du Point
+	 * @return la FigureColoree selectionner
+	 */
 	public FigureColoree selectionner(int x, int y) {
 		boolean res =false;//dm.getlfi().get(0).estDedans(e.getX(), e.getY());;
 		int i=getlfi().size()-1;
@@ -157,7 +173,10 @@ public class DessinModel extends Observable{
 		}
 
 	}
-
+	
+	/**
+	 * permet la deselection de toute les FigureColoree de DessinModel 
+	 */
 	public void deSelectionnerTout() {
 		for(int j=0;j<lfi.size();j++) {
 			lfi.get(j).deSelectionne();
@@ -166,6 +185,11 @@ public class DessinModel extends Observable{
 		}
 	}
 
+	/**
+	 * permet la translation de la figure selectioner 
+	 * @param lp Arrylist de Point qui sera modifier
+	 * @param fc FigureColoree a translater
+	 */
 	public void translater(ArrayList<Point> lp, FigureColoree fc) {
 		if(fc!=null) {
 			System.out.println(fc);
@@ -187,6 +211,12 @@ public class DessinModel extends Observable{
 
 	}
 
+	/**
+	 * permet de deformer une FigureColoree passer en parametre
+	 * @param lp Arrylist de Point qui sera modifier
+	 * @param fc FigureColoree a deformer
+	 * @param p Point depuit lequel se fait la deformation
+	 */
 	public void deformer(ArrayList<Point> lp, FigureColoree fc,Point p) {
 		if(fc!=null) {
 			System.out.println("deformation de "+fc);
@@ -201,12 +231,18 @@ public class DessinModel extends Observable{
 		}
 	}
 	
+	/**
+	 * efface toute les FigureColoree de DessinModel
+	 */
 	public void effacerTout() {
 		lfi.clear();
 		setChanged();
 		notifyObservers(VueDessin.NO_CHANGE);
 	}
 	
+	/**
+	 * fait appel a la methode repaint de VueDessin
+	 */
 	public void rafraichir() {
 		System.out.println("rafraichir");
 		setChanged();

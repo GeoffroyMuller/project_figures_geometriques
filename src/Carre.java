@@ -6,6 +6,10 @@ public class Carre extends Quadrilatere{
 		super();
 	}
 
+	/**
+	 * permet de modifier les Points d'une liste de Point donnee en parametre
+	 * @param ptab_mem Arraylist de Point a modifier
+	 */
 	public void modifierPoints(ArrayList<Point> ptab_mem){
 		this.tab_mem= ptab_mem;
 		Point p1 = tab_mem.get(0);
@@ -107,7 +111,9 @@ public class Carre extends Quadrilatere{
 		this.modifierPoints(ptab_mem);
 	}
 
-
+	/**
+	 * @return int qui correspond au nombres de Clics
+	 */
 	public int nbClics() {
 		return 2;
 	}

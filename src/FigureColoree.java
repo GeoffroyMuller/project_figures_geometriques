@@ -11,19 +11,39 @@ public abstract class FigureColoree implements Cloneable{
 	private Color couleur;
 	ArrayList<Point> tab_mem;
 	
+	/**
+	 * Constructeur Vide
+	 */
 	public FigureColoree() {
 		selected = false;
 		couleur = Color.gray;
 		tab_mem = new ArrayList<Point>();
 	}
 	
+	/**
+	 * retourne le nombre de point de la FigureColoree
+	 * @return nbPoint
+	 */
 	public abstract int nbPoint();
 	
+	/**
+	 * retourne le nombre de clics (correspondant au nombre de clics bresoin a la creation de la FigureColoree)
+	 * @return nbClics
+	 */
 	public abstract int nbClics();
 	
+	/**
+	 * test si les coordonnees passer en parametre sont dans la FigureColoree
+	 * @param a abscisse
+	 * @param b ordonnee
+	 * @return true si les coordonnee sont dans la FiqureColoree et false dans le cas contraire
+	 */
 	public abstract boolean estDedans(int a,int b);
 
-	
+	/**
+	 * permet la modification d'un Point se trouvant dans une ArryList passer en parametre
+	 * @param tab_mem Arrylist de Point 
+	 */
 	public abstract void modifierPoints(ArrayList<Point> tab_mem);
 	
 	public void affiche(Graphics g){

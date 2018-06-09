@@ -1,5 +1,8 @@
 
 public class Triangle extends Polygone{
+	/**
+	 * Constructeur Vide
+	 */
 	public Triangle(){
 		super();
 	}

@@ -38,6 +38,11 @@ public class VueDessin extends JPanel implements Observer{
 	private ArrayList<FigureColoree> lfi;
 	private DessinModel dm;
 	private FigureColoree figureEnCours;
+	
+	/**
+	 * Constructeur principale
+	 * @param dme
+	 */
 	public VueDessin(DessinModel dme) {
 		lfi = new ArrayList<FigureColoree>();
 		dm = dme;

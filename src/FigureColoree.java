@@ -46,6 +46,10 @@ public abstract class FigureColoree implements Cloneable{
 	 */
 	public abstract void modifierPoints(ArrayList<Point> tab_mem);
 	
+	/**
+	 * affiche graphiquement la FigureColoree this
+	 * @param g Graphics
+	 */
 	public void affiche(Graphics g){
 		g.setColor(couleur);
 		System.out.println("affiche fc");
@@ -64,6 +68,11 @@ public abstract class FigureColoree implements Cloneable{
 		g.drawPolygon(xd, yd, 3);*/
 	}
 	
+	/**
+	 * permet de translater tout les points de FigureColoree this, ils subissent la meme translation
+	 * @param tx
+	 * @param ty
+	 */
 	public void translation(int tx,int ty){
 		for (int i = 0; i < tab_mem.size(); i++) {
 			tab_mem.get(i).translation(tx, ty);
@@ -72,6 +81,12 @@ public abstract class FigureColoree implements Cloneable{
 		
 	}
 	
+	/**
+	 * 
+	 * @param tx
+	 * @param ty
+	 * @param p
+	 */
 	public void deformation(int tx,int ty,Point p){
 		p.translation(tx, ty);
 	}
@@ -80,18 +95,32 @@ public abstract class FigureColoree implements Cloneable{
 		return 0;
 	}
 	
+	/**
+	 * selection this
+	 */
 	public void selectionne(){
 		selected = true;
 	}
 	
+	/**
+	 * deselection this
+	 */
 	public void deSelectionne(){
 		selected = false;
 	}
 	
+	/**
+	 * Change la couleur de this
+	 * @param c
+	 */
 	public void changeCouleur(Color c){
 		couleur = c;
 	}
 
+	/**
+	 * retourne le boolean selected
+	 * @return selected
+	 */
 	public boolean isSelected() {
 		return selected;
 	}

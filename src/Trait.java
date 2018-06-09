@@ -28,6 +28,9 @@ public class Trait extends FigureColoree{
 		
 	}
 	
+	/**
+	 * affichage graphique de this
+	 */
 	public void affiche(Graphics g){
 		super.affiche(g);
 

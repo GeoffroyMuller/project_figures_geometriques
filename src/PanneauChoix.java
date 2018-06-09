@@ -19,7 +19,7 @@ public class PanneauChoix extends JPanel{
 	private boolean rbmainact = false;
 
 	private ButtonGroup bg = new ButtonGroup();
-
+	
 	public PanneauChoix(DessinModel dme) {
 		dm = dme;
 		setLayout(new BorderLayout());

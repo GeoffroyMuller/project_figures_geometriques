@@ -11,6 +11,11 @@ public class MainLevee {
 	private ArrayList<Point> lp= new ArrayList<Point>();
 
 
+	/**
+	 * construction du controlleur mainLevee
+	 * @param fc figure coloré du controlleur
+	 * @param dm Dessin model du controleur
+	 */
 	public MainLevee(FigureColoree fc, DessinModel dm){
 		mml=new MouseMotionListener(){
 
@@ -24,7 +29,6 @@ public class MainLevee {
 					fc.modifierPoints(lp);
 					dm.rafraichir();
 					
-					System.out.println("drag main levee");
 			}
 			@Override
 			public void mouseMoved(MouseEvent e){
@@ -45,7 +49,6 @@ public class MainLevee {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				System.out.println("clicked");
 				Point p = new Point(e.getX(),e.getY());
 				lp.add(p);
 				dm.ajoute(fc);

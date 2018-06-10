@@ -4,9 +4,13 @@ import java.util.ArrayList;
 public class Losange extends Quadrilatere{
 
 	public Losange() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
+	
+	/**
+	 * methode qui permet de construire ou de modifier  un rectangle avec une liste de point passer en parametre
+	 * @param liste de point 
+	 */
 	public void modifierPoints(ArrayList<Point> ptab_mem){
 		this.tab_mem= ptab_mem;
 		if(tab_mem.size()>=2 && tab_mem.size()<4) {
@@ -21,11 +25,20 @@ public class Losange extends Quadrilatere{
 		tab_mem.set(2,np1);
 		tab_mem.set(3,np2);
 	}
-
+	/**
+	 * @return nombre de click necessaire à la création de la figure
+	 */
 	public int nbClics() {
 		return 2;
 	}
-
+	
+	
+	/**
+	 * Methode de déformation propre au rectangle
+	 * @param tx transalation en x
+	 * @param ty translation en y
+	 * @param p Point actuellement selectionner par le manipulateur
+	 */
 	public void deformation(int tx,int ty,Point p) {
 
 		
@@ -58,7 +71,11 @@ public class Losange extends Quadrilatere{
 
 
 	}
-	
+	/**
+	 * Methode qui à le même comportement que la methode  modifier point standard mais qui 
+	 * permet de modifier les point du caree à partir du coté opposé 
+	 * @param ptab_mem
+	 */
 	public void modifierPointsInverse(ArrayList<Point> ptab_mem){
 		this.tab_mem= ptab_mem;
 		Point p1 = tab_mem.get(2);

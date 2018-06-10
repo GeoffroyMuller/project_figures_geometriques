@@ -185,7 +185,6 @@ public class DessinModel extends Observable{
 			System.out.println(fc);
 			if(lp.size()>2) {
 				int tx,ty;
-				System.out.println("translation");
 				tx=lp.get(lp.size()-1).rendreX()-lp.get(lp.size()-2).rendreX();
 				ty=lp.get(lp.size()-1).rendreY()-lp.get(lp.size()-2).rendreY();
 				fc.translation(tx, ty);
@@ -193,6 +192,9 @@ public class DessinModel extends Observable{
 				notifyObservers(VueDessin.NO_CHANGE);
 
 			}
+		}
+
+		else {
 		}
 
 
@@ -206,7 +208,6 @@ public class DessinModel extends Observable{
 	 */
 	public void deformer(ArrayList<Point> lp, FigureColoree fc,Point p) {
 		if(fc!=null) {
-			System.out.println("deformation de "+fc);
 			if(lp.size()>2) {
 				int tx,ty;
 				tx=lp.get(lp.size()-1).rendreX()-lp.get(lp.size()-2).rendreX();

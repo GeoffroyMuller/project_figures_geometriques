@@ -7,7 +7,9 @@ public abstract class Polygone extends FigureColoree{
 	public Polygone() {
 		super();
 	}
-
+	/**
+	 * affichage de base pour les polygone
+	 */
 	public void affiche(Graphics g){
 		super.affiche(g);
 		System.out.println("affiche poly");
@@ -22,17 +24,32 @@ public abstract class Polygone extends FigureColoree{
 		g.fillPolygon(xPoints, yPoints, tab_mem.size());
 	}
 
+	/**
+	 * @return int qui correspond au nombres de Clics
+	 */
 	public int nbClics(){
 		return this.nbPoint();
 
 	}
-
+	
+	/**
+	 * permet de modifier les Points d'une liste de Point donnee en parametre
+	 * @param ptab_mem Arraylist de Point aui viens re;plqcer lq liste de point qctuelle de le figure
+	 */
 	public void modifierPoints(java.util.ArrayList<Point> ptab_mem) {
 		this.tab_mem= ptab_mem;
 	};
 	@Override
 	public abstract int nbPoint();
-
+	
+	
+	/**
+	 * methode permettant de savoir si les coordonnés passées en paramètre sont dans une figure
+	 * à l'aide de la méthode contains de Polygon
+	 * @param a : coord en x
+	 * @param b : coord en y
+	 * @return true si les coordonné sont à l'interieur d'une figure
+	 */
 	@Override
 	public boolean estDedans(int a, int b) {
 		return this.p.contains(a,b);

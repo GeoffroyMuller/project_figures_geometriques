@@ -71,7 +71,7 @@ public class VueDessin extends JPanel implements Observer{
 				g.drawString("selection:"+lfi.get(i),20 , xcar+20);
 				xcar += 15;
 			}
-			System.out.println("afficher figure num :"+i);
+			System.out.println("figure numero :"+i);
 		}
 
 	}
@@ -88,44 +88,35 @@ public class VueDessin extends JPanel implements Observer{
 
 		case SUP_FF :
 			removeMouseListener(dm.ff.getMl());
-			System.out.println("remove listener ff");
 
 			break;
 
 		case ADD_FF:
 			addMouseListener(dm.ff.getMl());
-			System.out.println("ajout listener ff");
 			break;
 
 		case ADD_MF:
 			addMouseListener(dm.mf.getMlmf());
 			addMouseMotionListener(dm.mf.getMml());
-			System.out.println("ajout des listenner de manipulation");
 			break;
 
 		case SUP_MF:
 			removeMouseListener(dm.mf.getMlmf());
 			removeMouseMotionListener(dm.mf.getMml());
-			System.out.println("remove des listenner de manipulation");
-
 			break;
 			
 
 		case ADD_ML:
 			addMouseListener(dm.ml.getMlml());
 			addMouseMotionListener(dm.ml.getMml());
-			System.out.println("ajout des listenner de dessin mainlevee");
 			break;
 
 		case SUP_ML:
 			removeMouseListener(dm.ml.getMlml());
 			removeMouseMotionListener(dm.ml.getMml());
-			System.out.println("remove des listenner de dessin main leve");
-
 			break;
 
 		default:
-			System.out.println("operation sur les lstener inconnu");
 			break;
 		}
 		repaint();

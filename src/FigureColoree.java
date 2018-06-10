@@ -91,10 +91,6 @@ public abstract class FigureColoree implements Cloneable{
 		p.translation(tx, ty);
 	}
 	
-	public int carreDeSelection(int a,int b){
-		return 0;
-	}
-	
 	/**
 	 * selection this
 	 */

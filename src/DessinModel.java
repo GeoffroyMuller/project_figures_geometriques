@@ -43,15 +43,7 @@ public class DessinModel extends Observable{
 	 */
 	public void construit(FigureColoree fc){
 		if(fc instanceof Trait){
-			System.out.println("trait");
-		}
-		else{
-			System.out.println("autre");
-		}
-
-		if(fc instanceof Trait){
 			if(ml!=null){
-				System.out.println("supreesion ml");
 				setChanged();	
 				notifyObservers(VueDessin.SUP_ML);//remove Fabricant
 			}
@@ -61,7 +53,6 @@ public class DessinModel extends Observable{
 		}
 		else{
 			if(ff!=null){
-				System.out.println("suppresion ff");
 				setChanged();	
 				notifyObservers(VueDessin.SUP_FF);//remove Fabricant
 			}
@@ -95,7 +86,6 @@ public class DessinModel extends Observable{
 	 */
 	public void manipuler(){
 		if(mf!=null){
-			System.out.println("-remove deb modification");
 			setChanged();	
 			notifyObservers(VueDessin.SUP_MF);//remove manipuateur
 		}
@@ -205,9 +195,6 @@ public class DessinModel extends Observable{
 			}
 		}
 
-		else {
-			System.out.println("dragg mais pas de selection");
-		}
 
 	}
 
@@ -244,7 +231,6 @@ public class DessinModel extends Observable{
 	 * fait appel a la methode repaint de VueDessin
 	 */
 	public void rafraichir() {
-		System.out.println("rafraichir");
 		setChanged();
 		notifyObservers(VueDessin.NO_CHANGE);
 	}

@@ -4,6 +4,9 @@ public class Triangle extends Polygone{
 		super();
 	}
 
+	/**
+	 * @return int qui correspond au nombres de Clics
+	 */
 	@Override
 	public int nbPoint() {
 		return 3;

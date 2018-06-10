@@ -8,11 +8,18 @@ public class Rectangle extends Quadrilatere
 		super();
 	}
 
+	
+	/**
+	 * @return int qui correspond au nombres de Clics
+	 */
 	@Override
 	public int nbClics() {
 		return 2;
 	}
 	
+	/**
+	 * @return nombre de click necessaire à la création de la figure
+	 */
 	public void modifierPoints(ArrayList<Point> ptab_mem){
 		this.tab_mem= ptab_mem;
 		Point p1 = new Point(tab_mem.get(1).rendreX(),tab_mem.get(0).rendreY());
@@ -23,7 +30,12 @@ public class Rectangle extends Quadrilatere
 	}
 	
 
-	
+	/**
+	 * Methode de deformation propre au rectangle
+	 * @param tx transalation en x
+	 * @param ty translation en y
+	 * @param p Point actuellement selectionner par le manipulateur
+	 */
 	public void deformation(int tx,int ty,Point p) {
 		super.deformation(tx, ty, p);
 		ArrayList<Point> ptab_mem = new ArrayList<Point>();

@@ -64,6 +64,11 @@ public abstract class FigureColoree implements Cloneable{
 		g.drawPolygon(xd, yd, 3);*/
 	}
 	
+	/**
+	 * Methode de translation de toute la fugure
+	 * @param tx translation en x
+	 * @param ty translation en y
+	 */
 	public void translation(int tx,int ty){
 		for (int i = 0; i < tab_mem.size(); i++) {
 			tab_mem.get(i).translation(tx, ty);
@@ -72,6 +77,12 @@ public abstract class FigureColoree implements Cloneable{
 		
 	}
 	
+	/**
+	 * deformation basique
+	 * @param tx déformation en x
+	 * @param ty déformation en y
+	 * @param p Point à défromer
+	 */
 	public void deformation(int tx,int ty,Point p){
 		p.translation(tx, ty);
 	}
@@ -96,6 +107,10 @@ public abstract class FigureColoree implements Cloneable{
 		return selected;
 	}
 	
+	/**
+	 * 
+	 * @return une figure coloree clone de celle passe en paremetre ou null si erreur
+	 */
 	public FigureColoree cloner(){
 		FigureColoree res= null;
 		try {
@@ -106,7 +121,13 @@ public abstract class FigureColoree implements Cloneable{
 		
 		return res;
 	}
-
+	
+	/**
+	 * 
+	 * @param a coordonne x du listnner souris
+	 * @param b coordonne y du listener souris
+	 * @return true si le pointeur est sur un des carre de selection
+	 */
 	public boolean estSurCarreSelection(int a,  int b) {
 		boolean res = false;
 		Point p = new Point(a, b);
@@ -119,6 +140,12 @@ public abstract class FigureColoree implements Cloneable{
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @param acoordonne x du listnner souris
+	 * @param b coordonne y du listener souris
+	 * @return le point actuellment selectionner
+	 */
 	public Point pointDeSelection(int a, int b) {
 		Point p = new Point(a,b);
 		Point res = null;

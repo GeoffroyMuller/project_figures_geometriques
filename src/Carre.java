@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class Carre extends Quadrilatere{
 	boolean manipInverse;
 	public Carre() {
@@ -8,10 +9,9 @@ public class Carre extends Quadrilatere{
 
 	/**
 	 * permet de modifier les Points d'une liste de Point donnee en parametre
-	 * @param ptab_mem Arraylist de Point a modifier
+	 * @param ptab_mem Arraylist de Point aui viens re;plqcer lq liste de point qctuelle de le figure
 	 */
 	public void modifierPoints(ArrayList<Point> ptab_mem){
-		System.out.println("modif normal");
 		this.tab_mem= ptab_mem;
 		Point p1 = tab_mem.get(0);
 		Point p2 = tab_mem.get(1);
@@ -48,6 +48,14 @@ public class Carre extends Quadrilatere{
 
 	}
 
+	
+	/**
+	 * Methode de deformation propre au carre
+	 * @param tx transalation en x
+	 * @param ty translation en y
+	 * @param p Point actuellement selectionner par le manipulateur
+	 */
+	
 	public void deformation(int tx,int ty,Point p) {
 		super.deformation(tx, ty, p);
 		Point p0,p1,p2,p3;
@@ -83,7 +91,6 @@ public class Carre extends Quadrilatere{
 	}
 	
 	public void modifierPointsInverse(ArrayList<Point> ptab_mem){
-		System.out.println("modif inverse");
 		this.tab_mem= ptab_mem;
 		Point p1 = tab_mem.get(2);
 		Point p2 = tab_mem.get(3);
@@ -112,7 +119,6 @@ public class Carre extends Quadrilatere{
 		tab_mem.set(0,p3);
 		tab_mem.set(1,p4);
 
-		System.out.println(tab_mem);
 
 	}
 

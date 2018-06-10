@@ -42,12 +42,7 @@ public class DessinModel extends Observable{
 	 * @param fc FigureColoree a construire
 	 */
 	public void construit(FigureColoree fc){
-		if(fc instanceof Trait){
-			System.out.println("trait");
-		}
-		else{
-			System.out.println("autre");
-		}
+
 
 		if(fc instanceof Trait){
 			if(ml!=null){
@@ -195,7 +190,6 @@ public class DessinModel extends Observable{
 			System.out.println(fc);
 			if(lp.size()>2) {
 				int tx,ty;
-				System.out.println("translation");
 				tx=lp.get(lp.size()-1).rendreX()-lp.get(lp.size()-2).rendreX();
 				ty=lp.get(lp.size()-1).rendreY()-lp.get(lp.size()-2).rendreY();
 				fc.translation(tx, ty);
@@ -206,7 +200,6 @@ public class DessinModel extends Observable{
 		}
 
 		else {
-			System.out.println("dragg mais pas de selection");
 		}
 
 	}
@@ -219,7 +212,6 @@ public class DessinModel extends Observable{
 	 */
 	public void deformer(ArrayList<Point> lp, FigureColoree fc,Point p) {
 		if(fc!=null) {
-			System.out.println("deformation de "+fc);
 			if(lp.size()>2) {
 				int tx,ty;
 				tx=lp.get(lp.size()-1).rendreX()-lp.get(lp.size()-2).rendreX();
@@ -244,7 +236,6 @@ public class DessinModel extends Observable{
 	 * fait appel a la methode repaint de VueDessin
 	 */
 	public void rafraichir() {
-		System.out.println("rafraichir");
 		setChanged();
 		notifyObservers(VueDessin.NO_CHANGE);
 	}

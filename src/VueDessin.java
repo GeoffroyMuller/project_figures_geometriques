@@ -46,7 +46,7 @@ public class VueDessin extends JPanel implements Observer{
 	public VueDessin(DessinModel dme) {
 		lfi = new ArrayList<FigureColoree>();
 		dm = dme;
-		setBackground(Color.white);
+		setBackground(new Color(200, 200, 200));
 		//dm.construit(new Quadrilatere());
 		dm.addObserver(this);
 		//addMouseListener(dm.ff.getMl());

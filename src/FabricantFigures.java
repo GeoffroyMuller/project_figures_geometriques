@@ -30,18 +30,16 @@ public class FabricantFigures {
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
 				nbClics++;
-				System.out.println("clicked");
 				point = new Point(e.getX(),e.getY());
 
 				if(nbClics < fc.nbClics()){
 					lp.add(point);
-					System.out.println("addp"+nbClics);
+					System.out.println("Click num: "+nbClics);
 				}else{
 					if(nbClics == fc.nbClics()){
 						lp.add(point);
 						fc.modifierPoints(lp);//a changer
-						System.out.println("addpFinal"+nbClics);
-						System.out.println("insertion dans fc");
+						System.out.println("insertion de la figure");
 						dm.ajoute(fc);
 
 					}

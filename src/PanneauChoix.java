@@ -19,7 +19,11 @@ public class PanneauChoix extends JPanel{
 	private boolean rbmainact = false;
 
 	private ButtonGroup bg = new ButtonGroup();
-
+	
+	/**
+	 * Constructeur principal
+	 * @param dme DessinModel
+	 */
 	public PanneauChoix(DessinModel dme) {
 		dm = dme;
 		setLayout(new BorderLayout());
@@ -109,7 +113,7 @@ public class PanneauChoix extends JPanel{
 	
 	private void creerTrait(){
 		this.determineCouleur();
-		System.out.println("//////new trait///////");
+		System.out.println("Trait");
 		Trait t = new Trait();
 		t.changeCouleur(c);
 		dm.construit(t);

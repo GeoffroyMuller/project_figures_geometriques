@@ -73,7 +73,7 @@ public class Point {
 	 * modifie l'ordonnee
 	 * @param mod
 	 */
-	public void modifierY(int mod){
+	public void modifierY(int mod){ 
 		y=mod;
 	}
 
@@ -87,6 +87,9 @@ public class Point {
 		y=y+ty;
 	}
 	
+	/**
+	 * affiche le point
+	 */
 	public String toString() {
 		return " Point "+this.x+":"+this.y+" ";
 	}

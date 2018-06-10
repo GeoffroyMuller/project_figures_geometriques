@@ -41,6 +41,7 @@ public class Trait extends FigureColoree{
 	
 	/**
 	 * Methode d'affichage propre au trait
+
 	 */
 	public void affiche(Graphics g){
 		super.affiche(g);

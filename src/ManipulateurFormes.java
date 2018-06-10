@@ -14,6 +14,11 @@ public class ManipulateurFormes {
 	ArrayList<Point> tabP = new ArrayList<Point>();
 	MouseListener mlmf;
 	MouseMotionListener mml;
+	
+	/**
+	 * Constructeur pincipale
+	 * @param dme DessinModel a manipuler 
+	 */
 	public ManipulateurFormes(DessinModel dme) {
 		dm=dme;
 		mlmf = new MouseListener() {
@@ -82,7 +87,6 @@ public class ManipulateurFormes {
 					if(figureselec!=null) {
 						tabP.add(p);
 					}
-					System.out.println("draggg");
 					dm.translater(tabP, figureselec);
 
 					// TODO Auto-generated method stub
@@ -91,15 +95,27 @@ public class ManipulateurFormes {
 			}
 		};
 	}
-
+	
+	/**
+	 * retourn un DessinModel
+	 * @return DessinModel
+	 */
 	public DessinModel getDm() {
 		return dm;
 	}
 
+	/**
+	 * retourn un MouseListener
+	 * @return MouseListener
+	 */
 	public MouseListener getMlmf() {
 		return mlmf;
 	}
 
+	/**
+	 * retourn un MouseMotionListener
+	 * @return MouseMotionListener
+	 */
 	public MouseMotionListener getMml() {
 		return mml;
 	}

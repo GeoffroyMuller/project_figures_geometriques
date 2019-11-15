@@ -1,9 +1,18 @@
+package Controleur;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.util.concurrent.Delayed;
 
 import javax.swing.*;
+
+import Model.Carre;
+import Model.DessinModel;
+import Model.Losange;
+import Model.Quadrilatere;
+import Model.Rectangle;
+import Model.Trait;
+import Model.Triangle;
 
 public class PanneauChoix extends JPanel{
 	private JRadioButton rbnew = new JRadioButton("Nouvelle figure");

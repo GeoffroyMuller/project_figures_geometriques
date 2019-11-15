@@ -1,11 +1,17 @@
+package Model;
 import java.util.*;
 import java.util.Observable;
 
+import Controleur.FabricantFigures;
+import Controleur.MainLevee;
+import Controleur.ManipulateurFormes;
+import Vue.VueDessin;
+
 public class DessinModel extends Observable{
 	private ArrayList<FigureColoree> lfi;
-	FabricantFigures ff;
-	ManipulateurFormes mf;
-	MainLevee ml;
+	public FabricantFigures ff;
+	public ManipulateurFormes mf;
+	public MainLevee ml;
 	
 	/**
 	 * Constructeur Vide

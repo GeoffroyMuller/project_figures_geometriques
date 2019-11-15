@@ -1,3 +1,4 @@
+package Model;
 
 public class Quadrilatere extends Polygone{
 	public Quadrilatere(){

@@ -1,3 +1,4 @@
+package Controleur;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -5,6 +6,10 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.SwingUtilities;
+
+import Model.DessinModel;
+import Model.FigureColoree;
+import Model.Point;
 public class MainLevee {
 	MouseListener mlml;
 	MouseMotionListener mml;

@@ -1,4 +1,9 @@
+package Controleur;
 import javax.swing.*;
+
+import Model.DessinModel;
+import Model.FigureColoree;
+import Model.Point;
 
 import java.util.*;
 import java.awt.*;

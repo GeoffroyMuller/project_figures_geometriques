@@ -1,8 +1,12 @@
+package Vue;
 
 import java.awt.*;
 import java.util.*;
 
 import javax.swing.*;
+
+import Model.DessinModel;
+import Model.FigureColoree;
 
 
 
